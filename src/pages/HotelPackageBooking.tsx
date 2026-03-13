@@ -1,0 +1,967 @@
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+import ImageLightbox from "@/components/ImageLightbox";
+import ImageWithLoader from "@/components/ImageWithLoader";
+
+// Helper to slugify hotel names (must match the one used in the rest of the app)
+function slugify(str: string) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+const hotelGalleries: Record<string, Record<string, string[]>> = {
+  "south-africa": {
+    [slugify("Lagoon Beach Hotel and Spa, Cape Town")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Lagoon beach hotel and spa/LAGOON 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Lagoon beach hotel and spa/LAGOON 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Lagoon beach hotel and spa/LAGOON 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Lagoon beach hotel and spa/LAGOON 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Lagoon beach hotel and spa/LAGOON 5.jpg",
+    ],
+    [slugify("Premier Hotel,Cape Town")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Premier hotel/Premier 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Premier hotel/Premier 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Premier hotel/Premier 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Premier hotel/Premier 4.jpg",
+    ],
+    [slugify("Atlantic Palms, Cape Town")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Atlantic palms/ATLANTIC 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Atlantic palms/ATLANTIC 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Atlantic palms/ATLANTIC 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Atlantic palms/ATLANTIC 4.jpg",
+    ],
+  },
+  seychelles: {
+    [slugify("Pineapple Beach Villas, Seychelles")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 5.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 6.jpg",
+    ],
+    [slugify("Palm Beach Hotel, Seychelles")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Palm beach hotel Seychelles/PALM BEACH 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Palm beach hotel Seychelles/PALM BEACH 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Palm beach hotel Seychelles/PALM BEACH 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Palm beach hotel Seychelles/PALM BEACH 4.jpg",
+    ],
+    [slugify("Oasis Hotel Restaurant and spa, Seychelles")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Oasis hotel restaurant/OASIS 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Oasis hotel restaurant/OASIS 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Oasis hotel restaurant/OASIS 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Oasis hotel restaurant/OASIS 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Oasis hotel restaurant/OASIS 5.jpg",
+    ],
+  },
+  rwanda: {
+    [slugify("The Retreat, Rwanda")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/THE RETREAT, RWANDA/THE RETREAT 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/THE RETREAT, RWANDA/THE RETREAT 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/THE RETREAT, RWANDA/THE RETREAT 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/THE RETREAT, RWANDA/THE RETREAT 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/THE RETREAT, RWANDA/THE RETREAT 5.jpg",
+    ],
+    [slugify("4 Bedroom Villa, Rwanda")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/4 BR VILLA, RWANDA/RWANDA VILLA 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/4 BR VILLA, RWANDA/RWANDA VILLA 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/4 BR VILLA, RWANDA/RWANDA VILLA 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/4 BR VILLA, RWANDA/RWANDA VILLA 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/4 BR VILLA, RWANDA/RWANDA VILLA 5.jpg",
+    ],
+    [slugify("The Manor Hotel, Rwanda")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/MANOR HOTEL, RWANDA/MANOR HOTEL 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/MANOR HOTEL, RWANDA/MANOR HOTEL 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/MANOR HOTEL, RWANDA/MANOR HOTEL 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/MANOR HOTEL, RWANDA/MANOR HOTEL 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/MANOR HOTEL, RWANDA/MANOR HOTEL 5.jpg",
+    ],
+  },
+  mauritius: {
+    [slugify("Lagoon Attitude Hotel, Mauritius")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/LAGOON ATTITUDE HOTEL, MAURITIUS/LAGOON ATT 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/LAGOON ATTITUDE HOTEL, MAURITIUS/LAGOON ATT 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/LAGOON ATTITUDE HOTEL, MAURITIUS/LAGOON ATT 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/LAGOON ATTITUDE HOTEL, MAURITIUS/LAGOON ATT 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/LAGOON ATTITUDE HOTEL, MAURITIUS/LAGOON ATT 5.jpg",
+    ],
+    [slugify("Solana Beach, Mauritius")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/SOLANA BEACH, MAURITIUS/SOLANA BEACH 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/SOLANA BEACH, MAURITIUS/SOLANA BEACH 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/SOLANA BEACH, MAURITIUS/SOLANA BEACH 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/SOLANA BEACH, MAURITIUS/SOLANA BEACH 4.jpg",
+    ],
+    [slugify("Villa Anakao, Mauritius")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/VILLA ANAKAO, MAURITIUS/VILLA ANAKAO 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/VILLA ANAKAO, MAURITIUS/VILLA ANAKAO 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/VILLA ANAKAO, MAURITIUS/VILLA ANAKAO 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/VILLA ANAKAO, MAURITIUS/VILLA ANAKAO 4.jpg",
+    ],
+  },
+  zanzibar: {
+    [slugify("Jungle Paradise Beach Resort & Spa, Zanzibar")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/JUNGLE PARADISE, ZANZIBAR/JUNGLE PARADISE 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/JUNGLE PARADISE, ZANZIBAR/JUNGLE PARADISE 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/JUNGLE PARADISE, ZANZIBAR/JUNGLE PARADISE 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/JUNGLE PARADISE, ZANZIBAR/JUNGLE PARADISE 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/JUNGLE PARADISE, ZANZIBAR/JUNGLE PARADISE 5.jpg",
+    ],
+    [slugify("Zanzibar Beach Resort")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/ZANZIBAR BEACH RESORT/ZANZIBAR BEACH 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/ZANZIBAR BEACH RESORT/ZANZIBAR BEACH 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/ZANZIBAR BEACH RESORT/ZANZIBAR BEACH 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/ZANZIBAR BEACH RESORT/ZANZIBAR BEACH 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/ZANZIBAR BEACH RESORT/ZANZIBAR BEACH 5.jpg",
+    ],
+    [slugify("Warere Beach Resort, Zanzibar")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/WARERE BEACH RESORT, ZANZIBAR/WARERE BEACH 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/WARERE BEACH RESORT, ZANZIBAR/WARERE BEACH 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/WARERE BEACH RESORT, ZANZIBAR/WARERE BEACH 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/WARERE BEACH RESORT, ZANZIBAR/WARERE BEACH 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/WARERE BEACH RESORT, ZANZIBAR/WARERE BEACH 5.jpg",
+    ],
+  },
+  kenya: {
+    [slugify("Sarova Mara Game Camp, Maasai Mara")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Sarova Mara Game Camp/SAROVA MARA 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Sarova Mara Game Camp/SAROVA MARA 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Sarova Mara Game Camp/SAROVA MARA 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Sarova Mara Game Camp/SAROVA MARA 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Sarova Mara Game Camp/SAROVA MARA 5.jpg",
+    ],
+    [slugify("Eldon Villas Studio")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eldon Villas Studio/ELDON 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eldon Villas Studio/ELDON 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eldon Villas Studio/ELDON 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eldon Villas Studio/ELDON 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eldon Villas Studio/ELDON 5.jpg",
+    ],
+    [slugify("Isaac house Lukenya")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ISAAC HOUSE LUKENYA/ISAAC 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ISAAC HOUSE LUKENYA/ISAAC 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ISAAC HOUSE LUKENYA/ISAAC 3.jpg",
+    ],
+    [slugify("The Karen Residences")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KAREN RESIDENCE/KAREN 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KAREN RESIDENCE/KAREN 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KAREN RESIDENCE/KAREN 3.jpg",
+    ],
+    [slugify("Boffar Residence")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR RESIDENCE, NAIVASHA/BOFFAR 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR RESIDENCE, NAIVASHA/BOFFAR 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR RESIDENCE, NAIVASHA/BOFFAR 3.jpg",
+    ],
+    [slugify("Lifestyle villa")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/NANYUKI VILLAS/NANYUKI 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/NANYUKI VILLAS/NANYUKI 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/NANYUKI VILLAS/NANYUKI 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/NANYUKI VILLAS/NANYUKI 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/NANYUKI VILLAS/NANYUKI 5.jpg",
+    ],
+    [slugify("Pride Inn Mara Camp")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 5.jpg",
+    ],
+    [slugify("Sultanas Villa")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 3.jpg",
+    ],
+    [slugify("Mandhari Villa")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 3.jpg",
+    ],
+    [slugify("Bingo house, Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO HOUSE, WATAMU/BINGO 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO HOUSE, WATAMU/BINGO 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO HOUSE, WATAMU/BINGO 3.jpg",
+    ],
+    [slugify("Turtle bay villa, Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 5.jpg",
+    ],
+    [slugify("Diamond dream of Africa, Malindi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 3.jpg",
+    ],
+    [slugify("Medina Palms Beach Villas, Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Medina palms beach villas/MEDINA 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Medina palms beach villas/MEDINA 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Medina palms beach villas/MEDINA 3.jpg",
+    ],
+    [slugify("Jumeirah Beachfront Apartments, Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 3.jpg",
+    ],
+    [slugify("Almasi Beach apartments, Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Almasi beach apartments/ALMASI 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Almasi beach apartments/ALMASI 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Almasi beach apartments/ALMASI 3.jpg",
+    ],
+    [slugify("Diani Reef Beach Hotel")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Reef hotel Nyali/REEF HOTEL 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Reef hotel Nyali/REEF HOTEL 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Reef hotel Nyali/REEF HOTEL 3.jpg",
+    ],
+    [slugify("Villa Mudzini, Bamburi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 5.jpg",
+    ],
+    [slugify("Swahili Beach Apartments")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach5.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach6.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach7.jpg",
+    ],
+    [slugify("Serenity villa, Shanzu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY5.jpg",
+    ],
+    [slugify("Studio Cottages, Mtwapa")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO4.jpg",
+    ],
+    [slugify("Kwetu villas, Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU5.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU6.jpg",
+    ],
+    [slugify("Zhuri villas, Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI5.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI6.jpg",
+    ],
+    [slugify("Eden Beach Apartments, Shanzu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 4.jpg",
+    ],
+    [slugify("Olakaira Mara Homes, Masai Mara")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/OLAKAIRA MARA HOMES/OLAKAIRA 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/OLAKAIRA MARA HOMES/OLAKAIRA 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/OLAKAIRA MARA HOMES/OLAKAIRA 3.jpg",
+    ],
+    [slugify("Maiyan Villas Nanyuki")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Maiyan villas Nanyuki/MAIYAN 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Maiyan villas Nanyuki/MAIYAN 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Maiyan villas Nanyuki/MAIYAN 3.jpg",
+    ],
+    [slugify("Pendo Villas Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Pendo villas Diani/PENDO 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Pendo villas Diani/PENNDO 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Pendo villas Diani/PENDO 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Pendo villas Diani/PENDO 4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Pendo villas Diani/PENDO 5.jpg",
+    ],
+    [slugify("Mt.Kenya Wildlife Estate")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Mt.Kenya wildlife estate/MTKENYA 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Mt.Kenya wildlife estate/MTKENYA 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Mt.Kenya wildlife estate/MTKENYA 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Mt.Kenya wildlife estate/MTKENYA 4.jpg",
+    ],
+    [slugify("Southern Palm Beach Resort Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 3.jpg",
+    ],
+  },
+  thailand: {
+    [slugify("Chanalai garden resort Thailand")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 5.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 6.jpg",
+    ],
+    [slugify("Phuket Marriott resort and spa")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Phuket Marriott resort and spa/PHUKET 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Phuket Marriott resort and spa/PHUKET 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Phuket Marriott resort and spa/PHUKET 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Phuket Marriott resort and spa/PHUKET 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Phuket Marriott resort and spa/PHUKET 5.jpg",
+    ],
+    [slugify("Amari Phuket in Thailand")]: [
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 1.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 2.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 3.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 4.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 5.jpg",
+      "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 6.jpg",
+    ],
+  },
+};
+
+// Add or import allPackages from DestinationPackages.tsx
+const allPackages = {
+  "south-africa": [
+    { name: "Lagoon Beach Hotel and Spa, Cape Town", price: 15000 },
+    { name: "Premier Hotel,Cape Town", price: 16000 },
+    { name: "Atlantic Palms, Cape Town", price: 20000 },
+  ],
+  kenya: [
+    // Eden Beach Apartments in Shanzu
+    {
+      name: "Eden Beach Apartments, Shanzu",
+      price: 6500,
+      extraServices: [
+        { label: "1 Bedroom", price: 9000 },
+        { label: "2 Bedroom", price: 14000 },
+        { label: "3 Bedroom", price: 17000 },
+      ],
+    },
+    // Olakaira Mara Homes in Masai Mara
+    {
+      name: "Olakaira Mara Homes, Masai Mara",
+      price: 25000,
+    },
+    // Maiyan Villas Nanyuki
+    {
+      name: "Maiyan Villas Nanyuki",
+      price: 32000,
+    },
+    // Pendo Villas Diani
+    {
+      name: "Pendo Villas Diani",
+      price: 10000,
+      extraServices: [
+        { label: "1 Bedroom", price: 10000 },
+        { label: "2 Bedroom", price: 14000 },
+      ],
+    },
+    // Mt.Kenya Wildlife Estate
+    {
+      name: "Mt.Kenya Wildlife Estate",
+      price: 20000,
+      extraServices: [
+        { label: "2 Bedroom", price: 20000 },
+        { label: "3 Bedroom", price: 30000 },
+        { label: "4 Bedroom", price: 35000 },
+        { label: "5 Bedroom", price: 40000 },
+      ],
+    },
+    // Southern Palm Beach Resort Diani
+    {
+      name: "Southern Palm Beach Resort Diani",
+      price: 28000,
+    },
+    { name: "Eldon Villas Studio", price: 6500 },
+    { name: "Isaac house Lukenya", price: 48000 },
+    { name: "The Karen Residences", price: 90000 },
+    { name: "Boffar Residence", price: 20000 },
+    { name: "Lifestyle villa", price: 25000 },
+    { name: "Pride Inn Mara Camp", price: 65000 },
+    { name: "Sultanas Villa", price: 70000 },
+    { name: "Mandhari Villa", price: 25000 },
+    { name: "Bingo house, Watamu", price: 72000 },
+    { name: "Turtle bay villa, Watamu", price: 70000 },
+    { name: "Diamond dream of Africa, Malindi", price: 38000 },
+    { name: "Medina Palms Beach Villas, Watamu", price: 35000 },
+    { name: "Jumeirah Beachfront Apartments, Nyali", price: 30000 },
+    { name: "Almasi Beach apartments, Nyali", price: 25000 },
+    { name: "Diani Reef Beach Hotel", price: 22000 },
+    { name: "Villa Mudzini, Bamburi", price: 20000 },
+    { name: "Swahili Beach Apartments", price: 25000 },
+    { name: "Serenity villa, Shanzu", price: 6000 },
+    { name: "Studio Cottages, Mtwapa", price: 4500 },
+    { name: "Kwetu villas, Diani", price: 55000 },
+    { name: "Zhuri villas, Diani", price: 40000 },
+  ],
+  // Add other destinations as needed
+};
+
+type ExtraServices = {
+  doubleRoom: boolean;
+  seaView: boolean;
+  executiveDouble: boolean;
+  seniorExecutive: boolean;
+  oneBedStd: boolean;
+  oneBedDeluxe: boolean;
+  twoBedStd: boolean;
+  twoBedDeluxe: boolean;
+  oneBedStdPent: boolean;
+  oneBedDeluxePent: boolean;
+  savannah: boolean;
+  deluxeRiver: boolean;
+  luxuryRiver: boolean;
+  oneBedApt: boolean;
+  twoBedApt: boolean;
+  threeBedVilla: boolean;
+  fourBedVilla: boolean;
+  fiveBedVilla: boolean;
+  threeBed: boolean;
+  fourBed: boolean;
+  execApt: boolean;
+  seaViewApt: boolean;
+  oneBedSerenity: boolean;
+  twoBedSerenity: boolean;
+};
+
+const HotelPackageBooking: React.FC = () => {
+  const { slug, hotelSlug } = useParams();
+  const countryFolder = slug ? slugify(slug) : '';
+  const hotelFolder = hotelSlug ? slugify(hotelSlug) : '';
+  let galleryImages: string[] = [];
+  if (slug && hotelSlug && hotelGalleries[slug] && hotelGalleries[slug][hotelSlug]) {
+    galleryImages = hotelGalleries[slug][hotelSlug];
+  } else {
+    const galleryPath = `/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/${countryFolder}/${hotelFolder}/`;
+    galleryImages = [1,2,3,4,5,6].map(i => `${galleryPath}${hotelFolder.split('-')[0].toUpperCase()} ${i}.jpg`);
+  }
+  const hotelName = hotelFolder || "Hotel Name";
+  // Find the correct base price from allPackages
+  let basePrice = 26000;
+  if (slug && hotelSlug && allPackages[slug]) {
+    const pkg = allPackages[slug].find(
+      (p: { name: string }) => slugify(p.name) === hotelSlug
+    );
+    if (pkg && pkg.price) basePrice = pkg.price;
+  }
+  const [quantity, setQuantity] = useState(1);
+  const [date, setDate] = useState("");
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  // Extra services for Lagoon Beach Hotel, Jungle Paradise Beach Resort, and Kenya hotels
+  const isLagoonBeachHotel = slug === "south-africa" && hotelSlug === slugify("Lagoon Beach Hotel and Spa, Cape Town");
+  const isJungleParadise = slug === "zanzibar" && hotelSlug === slugify("Jungle Paradise Beach Resort & Spa, Zanzibar");
+  const isEldonVillas = slug === "kenya" && hotelSlug === slugify("Eldon Villas Studio");
+  const isPrideInnMara = slug === "kenya" && hotelSlug === slugify("Pride Inn Mara Camp");
+  const isTurtleBayVilla = slug === "kenya" && hotelSlug === slugify("Turtle bay villa, Watamu");
+  const isJumeirahNyali = slug === "kenya" && hotelSlug === slugify("Jumeirah Beachfront Apartments, Nyali");
+  const isSwahiliBeach = slug === "kenya" && hotelSlug === slugify("Swahili Beach Apartments");
+  const isSerenityVilla = slug === "kenya" && hotelSlug === slugify("Serenity villa, Shanzu");
+  const [extraServices, setExtraServices] = useState<ExtraServices>({
+    doubleRoom: false,
+    seaView: false,
+    executiveDouble: false,
+    seniorExecutive: false,
+    oneBedStd: false,
+    oneBedDeluxe: false,
+    twoBedStd: false,
+    twoBedDeluxe: false,
+    oneBedStdPent: false,
+    oneBedDeluxePent: false,
+    savannah: false,
+    deluxeRiver: false,
+    luxuryRiver: false,
+    oneBedApt: false,
+    twoBedApt: false,
+    threeBedVilla: false,
+    fourBedVilla: false,
+    fiveBedVilla: false,
+    threeBed: false,
+    fourBed: false,
+    execApt: false,
+    seaViewApt: false,
+    oneBedSerenity: false,
+    twoBedSerenity: false,
+  });
+  // Prices
+  const prices = {
+    oneBedStd: 8000, oneBedDeluxe: 10000, twoBedStd: 9000, twoBedDeluxe: 14000, oneBedStdPent: 8000, oneBedDeluxePent: 13000,
+    savannah: 65000, deluxeRiver: 83000, luxuryRiver: 90000,
+    oneBedApt: 70000, twoBedApt: 100000, threeBedVilla: 150000, fourBedVilla: 200000, fiveBedVilla: 250000,
+    threeBed: 30000, fourBed: 40000,
+    execApt: 25000, seaViewApt: 28000,
+    oneBedSerenity: 6000, twoBedSerenity: 10000
+  };
+  // Total price calculation
+  let totalPrice = basePrice * quantity;
+  if (isLagoonBeachHotel) {
+    if (extraServices.doubleRoom) totalPrice += 15000;
+    if (extraServices.seaView) totalPrice += 50000;
+  }
+  if (isJungleParadise) {
+    if (extraServices.executiveDouble) totalPrice += 32000;
+    if (extraServices.seniorExecutive) totalPrice += 38000;
+  }
+  if (isEldonVillas) {
+    if (extraServices.oneBedStd) totalPrice += prices.oneBedStd;
+    if (extraServices.oneBedDeluxe) totalPrice += prices.oneBedDeluxe;
+    if (extraServices.twoBedStd) totalPrice += prices.twoBedStd;
+    if (extraServices.twoBedDeluxe) totalPrice += prices.twoBedDeluxe;
+    if (extraServices.oneBedStdPent) totalPrice += prices.oneBedStdPent;
+    if (extraServices.oneBedDeluxePent) totalPrice += prices.oneBedDeluxePent;
+  }
+  if (isPrideInnMara) {
+    if (extraServices.savannah) totalPrice += prices.savannah;
+    if (extraServices.deluxeRiver) totalPrice += prices.deluxeRiver;
+    if (extraServices.luxuryRiver) totalPrice += prices.luxuryRiver;
+  }
+  if (isTurtleBayVilla) {
+    if (extraServices.oneBedApt) totalPrice += prices.oneBedApt;
+    if (extraServices.twoBedApt) totalPrice += prices.twoBedApt;
+    if (extraServices.threeBedVilla) totalPrice += prices.threeBedVilla;
+    if (extraServices.fourBedVilla) totalPrice += prices.fourBedVilla;
+    if (extraServices.fiveBedVilla) totalPrice += prices.fiveBedVilla;
+  }
+  if (isJumeirahNyali) {
+    if (extraServices.threeBed) totalPrice += prices.threeBed;
+    if (extraServices.fourBed) totalPrice += prices.fourBed;
+  }
+  if (isSwahiliBeach) {
+    if (extraServices.execApt) totalPrice += prices.execApt;
+    if (extraServices.seaViewApt) totalPrice += prices.seaViewApt;
+  }
+  if (isSerenityVilla) {
+    if (extraServices.oneBedSerenity) totalPrice += prices.oneBedSerenity;
+    if (extraServices.twoBedSerenity) totalPrice += prices.twoBedSerenity;
+  }
+  const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.123456789!2d55.1372!3d25.1122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2sHotel!5e0!3m2!1sen!2s!4v1234567890";
+
+  const navigate = useNavigate();
+
+  // Helper to add to cart
+  function addToCart() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push({
+      name: hotelName.replace(/-/g, " "),
+      price: basePrice,
+      quantity,
+      date,
+    });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    navigate("/cart");
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <section className="pt-32 pb-8 bg-secondary text-secondary-foreground">
+        <div className="container mx-auto px-4">
+          <Breadcrumb
+            items={[
+              { label: "Destinations", href: "/destination" },
+              { label: slug?.replace(/-/g, " ") || "Destination", href: `/destination/${slug}` },
+              { label: hotelName.replace(/-/g, " ") }
+            ]}
+            className="mb-4 text-white"
+          />
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center mx-auto capitalize">{hotelName.replace(/-/g, " ")}</h1>
+        </div>
+      </section>
+      <section className="py-12">
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-8">
+          {/* Gallery */}
+          <div className="flex-1">
+            <div className="mb-4">
+              <ImageWithLoader
+                src={galleryImages[selectedImage]}
+                alt={hotelName + " main gallery"}
+                className="rounded-lg object-cover w-full h-[340px] md:h-[420px] mb-4 cursor-pointer"
+                skeletonClassName="rounded-lg w-full h-[340px] md:h-[420px]"
+                onClick={() => setLightboxOpen(true)}
+              />
+              <div className="flex gap-3 overflow-x-auto pb-2">
+                {galleryImages.map((img, i) => (
+                  <ImageWithLoader
+                    key={i}
+                    src={img}
+                    alt={hotelName + " gallery " + (i + 1)}
+                    className={`rounded-lg object-cover w-28 h-20 cursor-pointer border-2 transition-all duration-200 flex-shrink-0 ${selectedImage === i ? 'border-orange-500' : 'border-transparent'}`}
+                    skeletonClassName="rounded-lg w-28 h-20"
+                    onClick={() => setSelectedImage(i)}
+                  />
+                ))}
+              </div>
+            </div>
+            {/* Booking Tour Form below gallery */}
+            <div className="bg-white rounded-2xl shadow p-8 mt-8">
+              <h2 className="text-2xl font-bold mb-6">Booking Tour Form</h2>
+              <form className="space-y-4">
+                <div className="space-y-2">
+                  <label htmlFor="fullName" className="block font-medium">Full Name</label>
+                  <input id="fullName" type="text" placeholder="Your Full Name" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block font-medium">Email</label>
+                  <input id="email" type="email" placeholder="Your Email" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="country" className="block font-medium">Country</label>
+                  <input id="country" type="text" placeholder="Country" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="guests" className="block font-medium">Number of Guests</label>
+                  <input id="guests" type="number" placeholder="Number of Guests" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="female" className="block font-medium">Number of Female</label>
+                  <input id="female" type="number" placeholder="Number of Female" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="male" className="block font-medium">Number of Male</label>
+                  <input id="male" type="number" placeholder="Number of Male" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="kids" className="block font-medium">Number of Kids</label>
+                  <input id="kids" type="number" placeholder="Number of Kids" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="kidsAge" className="block font-medium">Average Age of Kids</label>
+                  <input id="kidsAge" type="number" placeholder="Average Age of Kids" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="mealPlan" className="block font-medium">Meal Plan</label>
+                  <select id="mealPlan" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
+                    <option>Meal Plan</option>
+                    <option>None</option>
+                    <option>Breakfast only</option>
+                    <option>All Inclusive</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="purpose" className="block font-medium">Purpose of Visit</label>
+                  <select id="purpose" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
+                    <option>Purpose of Visit</option>
+                    <option>Business</option>
+                    <option>Vacation</option>
+                  </select>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-1 space-y-2">
+                    <label htmlFor="arrival" className="block font-medium">Arrival date</label>
+                    <input id="arrival" type="date" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <label htmlFor="departure" className="block font-medium">Departure date</label>
+                    <input id="departure" type="date" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="itinerary" className="block font-medium">Need an itinerary?</label>
+                  <select id="itinerary" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
+                    <option>Need an itinerary?</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="travelOption" className="block font-medium">Travel Option</label>
+                  <select id="travelOption" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
+                    <option>Travel Option</option>
+                    <option>SGR</option>
+                    <option>Flight</option>
+                    <option>Self-drive</option>
+                  </select>
+                </div>
+                <button type="submit" className="w-full bg-orange-500 text-white font-semibold py-3 rounded-full shadow hover:bg-orange-600 transition-all text-lg mt-4">Book Now</button>
+              </form>
+            </div>
+          </div>
+          {/* Sidebar */}
+          <div className="w-full lg:w-96 flex-shrink-0 flex flex-col gap-8">
+            {/* Booking Form */}
+            <div className="bg-white rounded-2xl shadow p-8 mb-0">
+              <h2 className="text-2xl font-bold mb-4">Book the Tour</h2>
+              <hr className="my-4" />
+              <div className="mb-4">
+                <div className="font-semibold mb-2">Select Your Tour Date</div>
+                <div className="flex items-center gap-2">
+                  <input type="radio" checked readOnly className="accent-orange-500" />
+                  <div className="border rounded px-4 py-2 flex items-center gap-2">
+                    <span className="font-semibold">Custom Date</span>
+                    <input
+                      type="date"
+                      value={date}
+                      onChange={e => setDate(e.target.value)}
+                      className="border-none outline-none bg-transparent text-lg"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="font-semibold text-lg">Adult: <span className="font-bold">KSh{basePrice.toLocaleString()}</span></div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    className="w-8 h-8 rounded-full border border-orange-500 text-orange-500 flex items-center justify-center text-xl font-bold"
+                    onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                  >-</button>
+                  <span className="mx-2 text-lg font-semibold">{quantity}</span>
+                  <button
+                    type="button"
+                    className="w-8 h-8 rounded-full border border-orange-500 text-orange-500 flex items-center justify-center text-xl font-bold"
+                    onClick={() => setQuantity(q => q + 1)}
+                  >+</button>
+                </div>
+              </div>
+              {isLagoonBeachHotel && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input
+                        type="checkbox"
+                        id="doubleRoom"
+                        checked={extraServices.doubleRoom}
+                        onChange={e => setExtraServices(s => ({ ...s, doubleRoom: e.target.checked }))}
+                        className="w-5 h-5 mr-2 accent-orange-500"
+                      />
+                      <label htmlFor="doubleRoom" className="flex-1 cursor-pointer">Double Room</label>
+                      <span className="font-semibold ml-2">{'KSh' + (15000).toLocaleString()}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="seaView"
+                        checked={extraServices.seaView}
+                        onChange={e => setExtraServices(s => ({ ...s, seaView: e.target.checked }))}
+                        className="w-5 h-5 mr-2 accent-orange-500"
+                      />
+                      <label htmlFor="seaView" className="flex-1 cursor-pointer">Four bedroom sea view</label>
+                      <span className="font-semibold ml-2">{'KSh' + (50000).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isJungleParadise && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-start mb-2">
+                      <input
+                        type="checkbox"
+                        id="executiveDouble"
+                        checked={extraServices.executiveDouble}
+                        onChange={e => setExtraServices(s => ({ ...s, executiveDouble: e.target.checked }))}
+                        className="w-5 h-5 mr-2 accent-orange-500 mt-1"
+                      />
+                      <label htmlFor="executiveDouble" className="flex-1 cursor-pointer">Executive Double room<br/>full board meal plan for 2 guests</label>
+                      <span className="font-semibold ml-2">{'KSh' + (32000).toLocaleString()}</span>
+                    </div>
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="seniorExecutive"
+                        checked={extraServices.seniorExecutive}
+                        onChange={e => setExtraServices(s => ({ ...s, seniorExecutive: e.target.checked }))}
+                        className="w-5 h-5 mr-2 accent-orange-500 mt-1"
+                      />
+                      <label htmlFor="seniorExecutive" className="flex-1 cursor-pointer">Senior Executive room<br/>for 4 guests</label>
+                      <span className="font-semibold ml-2">{'KSh' + (38000).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isEldonVillas && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="oneBedStd" checked={extraServices.oneBedStd} onChange={e => setExtraServices(s => ({ ...s, oneBedStd: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="oneBedStd" className="flex-1 cursor-pointer">1 bedroom standard</label>
+                      <span className="font-semibold ml-2">KSH.8000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="oneBedDeluxe" checked={extraServices.oneBedDeluxe} onChange={e => setExtraServices(s => ({ ...s, oneBedDeluxe: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="oneBedDeluxe" className="flex-1 cursor-pointer">1 bedroom deluxe</label>
+                      <span className="font-semibold ml-2">KSH.10000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="twoBedStd" checked={extraServices.twoBedStd} onChange={e => setExtraServices(s => ({ ...s, twoBedStd: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="twoBedStd" className="flex-1 cursor-pointer">2 bedroom standard</label>
+                      <span className="font-semibold ml-2">KSH.9000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="twoBedDeluxe" checked={extraServices.twoBedDeluxe} onChange={e => setExtraServices(s => ({ ...s, twoBedDeluxe: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="twoBedDeluxe" className="flex-1 cursor-pointer">2 bedroom deluxe</label>
+                      <span className="font-semibold ml-2">KSH.14000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="oneBedStdPent" checked={extraServices.oneBedStdPent} onChange={e => setExtraServices(s => ({ ...s, oneBedStdPent: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="oneBedStdPent" className="flex-1 cursor-pointer">1 bedroom standard penthouse</label>
+                      <span className="font-semibold ml-2">KSH.8000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="oneBedDeluxePent" checked={extraServices.oneBedDeluxePent} onChange={e => setExtraServices(s => ({ ...s, oneBedDeluxePent: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="oneBedDeluxePent" className="flex-1 cursor-pointer">1 bedroom deluxe penthouse</label>
+                      <span className="font-semibold ml-2">KSH.13000</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isPrideInnMara && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="savannah" checked={extraServices.savannah} onChange={e => setExtraServices(s => ({ ...s, savannah: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="savannah" className="flex-1 cursor-pointer">Savannah tent (9 queen beds, 3 twin beds)</label>
+                      <span className="font-semibold ml-2">KSH.65000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="deluxeRiver" checked={extraServices.deluxeRiver} onChange={e => setExtraServices(s => ({ ...s, deluxeRiver: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="deluxeRiver" className="flex-1 cursor-pointer">Deluxe river view cottage (4 king beds, 3 twin beds)</label>
+                      <span className="font-semibold ml-2">KSH.83000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="luxuryRiver" checked={extraServices.luxuryRiver} onChange={e => setExtraServices(s => ({ ...s, luxuryRiver: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="luxuryRiver" className="flex-1 cursor-pointer">Luxury river view cottage (4 king beds, 5 queen beds)</label>
+                      <span className="font-semibold ml-2">KSH.90000</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isTurtleBayVilla && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="oneBedApt" checked={extraServices.oneBedApt} onChange={e => setExtraServices(s => ({ ...s, oneBedApt: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="oneBedApt" className="flex-1 cursor-pointer">1 bedroom apartment</label>
+                      <span className="font-semibold ml-2">KSH.70000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="twoBedApt" checked={extraServices.twoBedApt} onChange={e => setExtraServices(s => ({ ...s, twoBedApt: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="twoBedApt" className="flex-1 cursor-pointer">2 bedroom apartment fully furnished</label>
+                      <span className="font-semibold ml-2">KSH.100000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="threeBedVilla" checked={extraServices.threeBedVilla} onChange={e => setExtraServices(s => ({ ...s, threeBedVilla: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="threeBedVilla" className="flex-1 cursor-pointer">3 bedroom villa fully furnished</label>
+                      <span className="font-semibold ml-2">KSH.150000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="fourBedVilla" checked={extraServices.fourBedVilla} onChange={e => setExtraServices(s => ({ ...s, fourBedVilla: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="fourBedVilla" className="flex-1 cursor-pointer">4 bedroom villa fully furnished</label>
+                      <span className="font-semibold ml-2">KSH.200000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="fiveBedVilla" checked={extraServices.fiveBedVilla} onChange={e => setExtraServices(s => ({ ...s, fiveBedVilla: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="fiveBedVilla" className="flex-1 cursor-pointer">5 bedroom villa fully furnished</label>
+                      <span className="font-semibold ml-2">KSH.250000</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isJumeirahNyali && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="threeBed" checked={extraServices.threeBed} onChange={e => setExtraServices(s => ({ ...s, threeBed: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="threeBed" className="flex-1 cursor-pointer">3 bedroom</label>
+                      <span className="font-semibold ml-2">KSH.30000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="fourBed" checked={extraServices.fourBed} onChange={e => setExtraServices(s => ({ ...s, fourBed: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="fourBed" className="flex-1 cursor-pointer">4 bedroom</label>
+                      <span className="font-semibold ml-2">KSH.40000</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isSwahiliBeach && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="execApt" checked={extraServices.execApt} onChange={e => setExtraServices(s => ({ ...s, execApt: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="execApt" className="flex-1 cursor-pointer">Executive apartments</label>
+                      <span className="font-semibold ml-2">KSH.25000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="seaViewApt" checked={extraServices.seaViewApt} onChange={e => setExtraServices(s => ({ ...s, seaViewApt: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="seaViewApt" className="flex-1 cursor-pointer">Sea view apartments</label>
+                      <span className="font-semibold ml-2">KSH.28000</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {isSerenityVilla && (
+                <>
+                  <hr className="my-4" />
+                  <div className="mb-4">
+                    <div className="font-semibold mb-2">Other Extra Services</div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="oneBedSerenity" checked={extraServices.oneBedSerenity} onChange={e => setExtraServices(s => ({ ...s, oneBedSerenity: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="oneBedSerenity" className="flex-1 cursor-pointer">1 bedroom</label>
+                      <span className="font-semibold ml-2">KSH.6000</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <input type="checkbox" id="twoBedSerenity" checked={extraServices.twoBedSerenity} onChange={e => setExtraServices(s => ({ ...s, twoBedSerenity: e.target.checked }))} className="w-5 h-5 mr-2 accent-orange-500" />
+                      <label htmlFor="twoBedSerenity" className="flex-1 cursor-pointer">2 bedroom</label>
+                      <span className="font-semibold ml-2">KSH.10000</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              <hr className="my-4" />
+              <div className="text-center mb-6">
+                <div className="text-lg">Total Price <span className="text-2xl font-bold">KSh{totalPrice.toLocaleString()}</span></div>
+              </div>
+              <button type="button" className="w-full bg-orange-500 text-white font-semibold py-3 rounded shadow hover:bg-orange-600 transition-all text-lg" onClick={addToCart}>Book Now</button>
+            </div>
+            {/* Map Location Card */}
+            <div className="bg-white rounded-xl shadow p-6">
+              <div className="text-lg font-semibold mb-2">Map Location</div>
+              <iframe
+                src={mapSrc}
+                width="100%"
+                height="200"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Hotel Map"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {lightboxOpen && (
+        <ImageLightbox
+          images={galleryImages}
+          currentIndex={selectedImage}
+          onClose={() => setLightboxOpen(false)}
+          onNext={() => setSelectedImage((prev) => (prev + 1) % galleryImages.length)}
+          onPrevious={() => setSelectedImage((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
+          alt={hotelName}
+        />
+      )}
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default HotelPackageBooking; 
