@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ImageLightbox from "@/components/ImageLightbox";
 import ImageWithLoader from "@/components/ImageWithLoader";
 import { Calendar, Gift, Users, CheckCircle, Info, MapPin, Sparkles, Heart, Sun, PartyPopper } from "lucide-react";
+import { getMapUrl } from "@/lib/hotelCoordinates";
 
 // Helper to slugify event names
 function slugify(str: string) {
@@ -441,12 +442,22 @@ const EventPackageDetail: React.FC = () => {
             </div>
             {/* Map Location Card */}
             <div className="bg-white rounded-xl shadow p-6">
-              <div className="text-lg font-semibold mb-2">Map Location</div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-lg font-semibold">Map Location</div>
+                <a
+                  href={`https://www.google.com/maps/search/${encodeURIComponent(event.name || "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+                >
+                  Open in Maps ↗
+                </a>
+              </div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.123456789!2d55.1372!3d25.1122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2sHotel!5e0!3m2!1sen!2s!4v1234567890"
+                src={getMapUrl(eventSlug || "", event.name || "Kenya")}
                 width="100%"
-                height="200"
-                style={{ border: 0 }}
+                height="220"
+                style={{ border: 0, borderRadius: "8px" }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

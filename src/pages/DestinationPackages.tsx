@@ -7,6 +7,7 @@ import ImageWithLoader from "@/components/ImageWithLoader";
 import FilterSort from "@/components/FilterSort";
 import EmptyState from "@/components/EmptyState";
 import { Hotel } from "lucide-react";
+import { getKenyaAreas } from "@/lib/kenyaData";
 
 const placeholderPackage = (i: number) => ({
   name: `Sample Hotel Package ${i + 1}`,
@@ -273,20 +274,309 @@ const allPackages = {
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 1.jpg",
       price: "KSH.28000",
     },
+    // Golden Duranta Villas Diani
+    {
+      name: "Golden Duranta Villas Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 1.jpeg",
+      price: "KSH.40000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.40000" },
+      ],
+    },
+    // Golden Sun and Sand Beach Studio Apartments Diani
+    {
+      name: "Golden Sun and Sand Beach Studio Apartments Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 1.jpeg",
+      price: "KSH.6000",
+    },
+    // Kwetu Villas Diani (updated listing)
+    {
+      name: "Kwetu Villas Diani (5 Bedroom)",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 1.jpeg",
+      price: "KSH.60000",
+    },
+    // Jamii Villas Diani
+    {
+      name: "Jamii Villas Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 1.jpeg",
+      price: "KSH.80000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.80000" },
+      ],
+    },
+    // 4 Bedroom Apartment in Nyali with SQ
+    {
+      name: "4 Bedroom Apartment in Nyali with SQ",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 1.jpeg",
+      price: "KSH.15000",
+    },
+    // Kwamby Apartments Nyali
+    {
+      name: "Kwamby Apartments Nyali",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 1.jpeg",
+      price: "KSH.12000",
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: "KSH.12000" },
+      ],
+    },
+    // Villa Ella Nyali
+    {
+      name: "Villa Ella Nyali",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 1.jpeg",
+      price: "KSH.60000",
+      extraServices: [
+        { label: "7 Bedroom (16 guests)", price: "KSH.60000" },
+      ],
+    },
+    // Kijani Paradise Malindi
+    {
+      name: "Kijani Paradise Malindi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 1.jpeg",
+      price: "KSH.12000",
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: "KSH.12000" },
+      ],
+    },
+    // Kasa Tatu Villas Watamu
+    {
+      name: "Kasa Tatu Villas Watamu",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 1.jpeg",
+      price: "KSH.28000",
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: "KSH.28000" },
+      ],
+    },
+    // Villa Sultana Diani
+    {
+      name: "Villa Sultana Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 1.jpeg",
+      price: "KSH.65000",
+      extraServices: [
+        { label: "9 Bedroom (20 guests)", price: "KSH.65000" },
+      ],
+    },
+    // Azura Villa Watamu
+    {
+      name: "Azura Villa Watamu",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 1.jpeg",
+      price: "KSH.50000",
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: "KSH.50000" },
+      ],
+    },
+    // Milamax Beach Villa
+    {
+      name: "Milamax Beach Villa",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 1.jpeg",
+      price: "KSH.60000",
+      extraServices: [
+        { label: "5 Bedroom (12 guests)", price: "KSH.60000" },
+      ],
+    },
+    // H2O Apartments Nyali
+    {
+      name: "H2O Apartments Nyali",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 1.jpeg",
+      price: "KSH.12000",
+      extraServices: [
+        { label: "3 Bedroom (6 guests)", price: "KSH.12000" },
+      ],
+    },
+    // Bingo Family Villa Watamu
+    {
+      name: "Bingo Family Villa Watamu",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 1.jpeg",
+      price: "KSH.80000",
+      extraServices: [
+        { label: "5 Bedroom (16 guests)", price: "KSH.80000" },
+      ],
+    },
+    // Creek Beach Villa Nyali
+    {
+      name: "Creek Beach Villa Nyali",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 1.jpeg",
+      price: "KSH.50000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.50000" },
+      ],
+    },
+    // Zumaridi Villas Diani
+    {
+      name: "Zumaridi Villas Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 1.jpeg",
+      price: "KSH.25000",
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: "KSH.25000" },
+        { label: "3 Bedroom (6 guests)", price: "KSH.30000" },
+      ],
+    },
+    // The White Villa Watamu
+    {
+      name: "The White Villa Watamu",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 1.jpeg",
+      price: "KSH.35000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.35000" },
+      ],
+    },
+    // Blue Water Villas Diani
+    {
+      name: "Blue Water Villas Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 1.jpeg",
+      price: "KSH.25000",
+      extraServices: [
+        { label: "3 Bedroom (6 guests)", price: "KSH.25000" },
+      ],
+    },
+    // Aurelia Sands Beachfront Apartment Bamburi
+    {
+      name: "Aurelia Sands Beachfront Apartment Bamburi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 1.jpeg",
+      price: "KSH.20000",
+    },
+    // Azul Margarita Beach Apartment Bamburi
+    {
+      name: "Azul Margarita Beach Apartment Bamburi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZUL MARGARITA BEACH/AZUL 1.jpeg",
+      price: "KSH.18000",
+      extraServices: [
+        { label: "Studio", price: "KSH.18000" },
+        { label: "1 Bedroom", price: "KSH.20000" },
+        { label: "2 Bedroom", price: "KSH.25000" },
+        { label: "3 Bedroom", price: "KSH.30000" },
+      ],
+    },
+    // Azanza Holiday Homes Kilifi
+    {
+      name: "Azanza Holiday Homes Kilifi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 1.jpeg",
+      price: "KSH.20000",
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: "KSH.20000" },
+      ],
+    },
+    // Pazuri Homes Kilifi
+    {
+      name: "Pazuri Homes Kilifi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 1.jpeg",
+      price: "KSH.50000",
+      extraServices: [
+        { label: "4 Bedroom + SQ (10 guests)", price: "KSH.50000" },
+      ],
+    },
+    // Elnas Haven Diani
+    {
+      name: "Elnas Haven Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 1.jpeg",
+      price: "KSH.30000",
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: "KSH.30000" },
+      ],
+    },
+    // Turtle Bay Villas Watamu
+    {
+      name: "Turtle Bay Villas Watamu",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 1.jpeg",
+      price: "KSH.30000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.30000" },
+      ],
+    },
+    // Star Villas Nyali
+    {
+      name: "Star Villas Nyali",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 1.jpeg",
+      price: "KSH.30000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.30000" },
+      ],
+    },
   ],
 };
 
 const DestinationPackages: React.FC = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+
+  // ── KENYA: show sub-location cards ──────────────────────────────────────
+  if (slug === "kenya") {
+    const areas = getKenyaAreas();
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <section className="pt-32 pb-8 bg-secondary text-secondary-foreground relative overflow-hidden">
+          <img
+            src="/SLIDES/Banner img.png"
+            alt="Kenya Banner"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            style={{ opacity: 0.5 }}
+          />
+          <div className="absolute inset-0 bg-secondary z-10" style={{ opacity: 0.5 }} />
+          <div className="container mx-auto px-4 text-center relative z-20">
+            <Breadcrumb
+              items={[
+                { label: "Destinations", href: "/destination" },
+                { label: "Kenya" },
+              ]}
+              className="mb-4 text-white justify-center"
+            />
+            <button
+              className="mb-4 px-6 py-2 bg-orange-500 text-white rounded shadow hover:bg-orange-600 transition-all font-semibold float-left"
+              onClick={() => navigate("/destination")}
+            >
+              ← Back
+            </button>
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">Kenya Tour Packages</h1>
+            <p className="text-lg opacity-90">Select an area to explore available properties</p>
+          </div>
+        </section>
+
+        <section className="py-14">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {areas.map((area) => (
+                <div
+                  key={area.slug}
+                  className="relative rounded-xl overflow-hidden shadow group h-56 cursor-pointer"
+                  onClick={() => navigate(`/destination/kenya/area/${area.slug}`)}
+                >
+                  <img
+                    src={area.image}
+                    alt={area.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* dark gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  {/* places badge — always visible */}
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-orange-500 text-white px-3 py-1 rounded font-semibold text-sm shadow">
+                      {area.count} Place{area.count !== 1 ? "s" : ""}
+                    </span>
+                  </div>
+                  {/* area name */}
+                  <div className="absolute bottom-4 left-4 text-white text-xl font-bold drop-shadow-lg">
+                    {area.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  // ── ALL OTHER DESTINATIONS: show hotel cards as before ───────────────────
   const rawPackages = allPackages[slug as keyof typeof allPackages] || [];
-  
+
   // Convert price strings to numbers
   const packages = rawPackages.map(pkg => ({
     ...pkg,
     priceNumber: parseFloat(pkg.price.replace(/[^0-9.]/g, '')) || 0
   }));
-  
+
   // Filter and sort state
   const [sortBy, setSortBy] = useState("default");
   const maxPrice = Math.max(...packages.map(p => p.priceNumber), 100000);

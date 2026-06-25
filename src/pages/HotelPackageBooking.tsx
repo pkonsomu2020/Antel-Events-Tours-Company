@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import ImageLightbox from "@/components/ImageLightbox";
 import ImageWithLoader from "@/components/ImageWithLoader";
+import { getMapUrl } from "@/lib/hotelCoordinates";
 
 // Helper to slugify hotel names (must match the one used in the rest of the app)
 function slugify(str: string) {
@@ -293,6 +294,251 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 2.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 3.jpg",
     ],
+    [slugify("Golden Duranta Villas Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Duranta/Golden 8.jpeg",
+    ],
+    [slugify("Golden Sun and Sand Beach Studio Apartments Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 6.jpeg",
+    ],
+    [slugify("Kwetu Villas Diani (5 Bedroom)")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 8.jpeg",
+    ],
+    [slugify("Jamii Villas Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 8.jpeg",
+    ],
+    [slugify("4 Bedroom Apartment in Nyali with SQ")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR APARTM, NYALI WITH SQ/4BR 8.jpeg",
+    ],
+    [slugify("Kwamby Apartments Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KWAMBY APARTMENTS/KWAMBY 8.jpeg",
+    ],
+    [slugify("Villa Ella Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA ELLA/ELLA 8.jpeg",
+    ],
+    [slugify("Kijani Paradise Malindi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 8.jpeg",
+    ],
+    [slugify("Kasa Tatu Villas Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 8.jpeg",
+    ],
+    [slugify("Villa Sultana Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANA/SULTANA 8.jpeg",
+    ],
+    [slugify("Azura Villa Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 8.jpeg",
+    ],
+    [slugify("Milamax Beach Villa")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 8.jpeg",
+    ],
+    [slugify("H2O Apartments Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/H2O APARTMENTS/H2O 8.jpeg",
+    ],
+    [slugify("Bingo Family Villa Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 8.jpeg",
+    ],
+    [slugify("Creek Beach Villa Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 8.jpeg",
+    ],
+    [slugify("Zumaridi Villas Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 8.jpeg",
+    ],
+    [slugify("The White Villa Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 8.jpeg",
+    ],
+    [slugify("Blue Water Villas Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BLUE WATER VILLAS/BLUE 8.jpeg",
+    ],
+    [slugify("Aurelia Sands Beachfront Apartment Bamburi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AURELIA SANDS BEACHFRONT/AURELIA 8.jpeg",
+    ],
+    [slugify("Azul Margarita Beach Apartment Bamburi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZUL MARGARITA BEACH/AZUL 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZUL MARGARITA BEACH/AZUL 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZUL MARGARITA BEACH/AZUL 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZUL MARGARITA BEACH/AZUL 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZUL MARGARITA BEACH/AZUL 5.jpeg",
+    ],
+    [slugify("Azanza Holiday Homes Kilifi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 8.jpeg",
+    ],
+    [slugify("Pazuri Homes Kilifi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 8.jpeg",
+    ],
+    [slugify("Elnas Haven Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELNAS HAVEN/Elnas 8.jpeg",
+    ],
+    [slugify("Turtle Bay Villas Watamu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 8.jpeg",
+    ],
+    [slugify("Star Villas Nyali")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 6.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 7.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 8.jpeg",
+    ],
   },
   thailand: {
     [slugify("Chanalai garden resort Thailand")]: [
@@ -373,6 +619,198 @@ const allPackages = {
     {
       name: "Southern Palm Beach Resort Diani",
       price: 28000,
+    },
+    // Golden Duranta Villas Diani
+    {
+      name: "Golden Duranta Villas Diani",
+      price: 40000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 40000 },
+      ],
+    },
+    // Golden Sun and Sand Beach Studio Apartments Diani
+    {
+      name: "Golden Sun and Sand Beach Studio Apartments Diani",
+      price: 6000,
+    },
+    // Kwetu Villas Diani (5 Bedroom)
+    {
+      name: "Kwetu Villas Diani (5 Bedroom)",
+      price: 60000,
+    },
+    // Jamii Villas Diani
+    {
+      name: "Jamii Villas Diani",
+      price: 80000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 80000 },
+      ],
+    },
+    // 4 Bedroom Apartment in Nyali with SQ
+    {
+      name: "4 Bedroom Apartment in Nyali with SQ",
+      price: 15000,
+    },
+    // Kwamby Apartments Nyali
+    {
+      name: "Kwamby Apartments Nyali",
+      price: 12000,
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: 12000 },
+      ],
+    },
+    // Villa Ella Nyali
+    {
+      name: "Villa Ella Nyali",
+      price: 60000,
+      extraServices: [
+        { label: "7 Bedroom (16 guests)", price: 60000 },
+      ],
+    },
+    // Kijani Paradise Malindi
+    {
+      name: "Kijani Paradise Malindi",
+      price: 12000,
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: 12000 },
+      ],
+    },
+    // Kasa Tatu Villas Watamu
+    {
+      name: "Kasa Tatu Villas Watamu",
+      price: 28000,
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: 28000 },
+      ],
+    },
+    // Villa Sultana Diani
+    {
+      name: "Villa Sultana Diani",
+      price: 65000,
+      extraServices: [
+        { label: "9 Bedroom (20 guests)", price: 65000 },
+      ],
+    },
+    // Azura Villa Watamu
+    {
+      name: "Azura Villa Watamu",
+      price: 50000,
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: 50000 },
+      ],
+    },
+    // Milamax Beach Villa
+    {
+      name: "Milamax Beach Villa",
+      price: 60000,
+      extraServices: [
+        { label: "5 Bedroom (12 guests)", price: 60000 },
+      ],
+    },
+    // H2O Apartments Nyali
+    {
+      name: "H2O Apartments Nyali",
+      price: 12000,
+      extraServices: [
+        { label: "3 Bedroom (6 guests)", price: 12000 },
+      ],
+    },
+    // Bingo Family Villa Watamu
+    {
+      name: "Bingo Family Villa Watamu",
+      price: 80000,
+      extraServices: [
+        { label: "5 Bedroom (16 guests)", price: 80000 },
+      ],
+    },
+    // Creek Beach Villa Nyali
+    {
+      name: "Creek Beach Villa Nyali",
+      price: 50000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 50000 },
+      ],
+    },
+    // Zumaridi Villas Diani
+    {
+      name: "Zumaridi Villas Diani",
+      price: 25000,
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: 25000 },
+        { label: "3 Bedroom (6 guests)", price: 30000 },
+      ],
+    },
+    // The White Villa Watamu
+    {
+      name: "The White Villa Watamu",
+      price: 35000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 35000 },
+      ],
+    },
+    // Blue Water Villas Diani
+    {
+      name: "Blue Water Villas Diani",
+      price: 25000,
+      extraServices: [
+        { label: "3 Bedroom (6 guests)", price: 25000 },
+      ],
+    },
+    // Aurelia Sands Beachfront Apartment Bamburi
+    {
+      name: "Aurelia Sands Beachfront Apartment Bamburi",
+      price: 20000,
+    },
+    // Azul Margarita Beach Apartment Bamburi
+    {
+      name: "Azul Margarita Beach Apartment Bamburi",
+      price: 18000,
+      extraServices: [
+        { label: "Studio", price: 18000 },
+        { label: "1 Bedroom", price: 20000 },
+        { label: "2 Bedroom", price: 25000 },
+        { label: "3 Bedroom", price: 30000 },
+      ],
+    },
+    // Azanza Holiday Homes Kilifi
+    {
+      name: "Azanza Holiday Homes Kilifi",
+      price: 20000,
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: 20000 },
+      ],
+    },
+    // Pazuri Homes Kilifi
+    {
+      name: "Pazuri Homes Kilifi",
+      price: 50000,
+      extraServices: [
+        { label: "4 Bedroom + SQ (10 guests)", price: 50000 },
+      ],
+    },
+    // Elnas Haven Diani
+    {
+      name: "Elnas Haven Diani",
+      price: 30000,
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: 30000 },
+      ],
+    },
+    // Turtle Bay Villas Watamu
+    {
+      name: "Turtle Bay Villas Watamu",
+      price: 30000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 30000 },
+      ],
+    },
+    // Star Villas Nyali
+    {
+      name: "Star Villas Nyali",
+      price: 30000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 30000 },
+      ],
     },
     { name: "Eldon Villas Studio", price: 6500 },
     { name: "Isaac house Lukenya", price: 48000 },
@@ -536,7 +974,7 @@ const HotelPackageBooking: React.FC = () => {
     if (extraServices.oneBedSerenity) totalPrice += prices.oneBedSerenity;
     if (extraServices.twoBedSerenity) totalPrice += prices.twoBedSerenity;
   }
-  const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.123456789!2d55.1372!3d25.1122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2sHotel!5e0!3m2!1sen!2s!4v1234567890";
+  const mapSrc = getMapUrl(hotelSlug || "", `${hotelSlug?.replace(/-/g, " ")} Kenya`);
 
   const navigate = useNavigate();
 
@@ -932,12 +1370,22 @@ const HotelPackageBooking: React.FC = () => {
             </div>
             {/* Map Location Card */}
             <div className="bg-white rounded-xl shadow p-6">
-              <div className="text-lg font-semibold mb-2">Map Location</div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-lg font-semibold">Map Location</div>
+                <a
+                  href={`https://www.google.com/maps/search/${encodeURIComponent(hotelName || "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+                >
+                  Open in Maps ↗
+                </a>
+              </div>
               <iframe
                 src={mapSrc}
                 width="100%"
-                height="200"
-                style={{ border: 0 }}
+                height="220"
+                style={{ border: 0, borderRadius: "8px" }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

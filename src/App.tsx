@@ -13,6 +13,7 @@ import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
 import DestinationPackages from "./pages/DestinationPackages";
 import HotelPackageBooking from "./pages/HotelPackageBooking";
+import KenyaAreaPackages from "./pages/KenyaAreaPackages";
 import EventPackageDetail from "./pages/EventPackageDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/destination" element={<Destination />} />
             <Route path="/destination/:slug" element={<DestinationPackages />} />
+            <Route path="/destination/kenya/area/:area" element={<KenyaAreaPackages />} />
             <Route path="/destination/:slug/:hotelSlug" element={<HotelPackageBooking />} />
             <Route path="/event-package" element={<EventPackage />} />
             <Route path="/event-package/:eventSlug" element={<EventPackageDetail />} />
