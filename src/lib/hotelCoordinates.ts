@@ -279,6 +279,49 @@ export const hotelMapUrls: Record<string, string> = {
   "olakaira-mara-homes-masai-mara": mapQ(
     "Olakaira Mara Homes Masai Mara Kenya", 13
   ),
+  "kobe-house-mara": mapQ(
+    "Kobe House Mara Masai Mara Narok Kenya", 13
+  ),
+
+  // ── NAIVASHA / NAKURU / SYOKIMAU ────────────────────────────
+  "lake-elementaita-mountain-lodge": mapQ(
+    "Lake Elementaita Mountain Lodge Elementaita Nakuru Kenya", 14
+  ),
+  "kentwood-cabins-naivasha": mapQ(
+    "Kentwood Cabins Naivasha Kenya", 15
+  ),
+  "boffar-cabins-naivasha": mapQ(
+    "Boffar Cabins Naivasha Kenya", 15
+  ),
+  "shawmut-suites-nakuru": mapQ(
+    "Shawmut Suites Nakuru Kenya", 15
+  ),
+  "1-bedroom-luxore-apartment-syokimau": mapQ(
+    "Luxore Apartment Syokimau Machakos Kenya", 15
+  ),
+
+  // ── NAIROBI NEW ─────────────────────────────────────────────
+  "5-bedroom-garden-estate-nairobi": mapQ(
+    "5 Bedroom Garden Estate Nairobi Kenya", 14
+  ),
+  "4-bedroom-kiserian-nairobi": mapQ(
+    "Kiserian Kajiado Nairobi Kenya", 14
+  ),
+  "3-bedroom-navilla-springs-westlands": mapQ(
+    "Navilla Springs Westlands Nairobi Kenya", 15
+  ),
+  "4-bedroom-kilimani-nairobi": mapQ(
+    "Kilimani Nairobi Kenya", 15
+  ),
+  "4-bedroom-green-park-estate-athi-river": mapQ(
+    "Green Park Estate Athi River Machakos Kenya", 14
+  ),
+  "5-bedroom-garden-estate-nairobi-budget": mapQ(
+    "5 Bedroom Garden Estate Nairobi Kenya", 14
+  ),
+  "1-bedroom-garden-estate-nairobi": mapQ(
+    "Garden Estate Nairobi Kenya", 14
+  ),
 
   // ═══════════════════════════════════════════════════════════════
   //  EVENT VENUES

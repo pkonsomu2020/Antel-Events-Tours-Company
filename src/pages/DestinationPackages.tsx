@@ -274,6 +274,98 @@ const allPackages = {
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Southern palm beach resort/SOUTHERN 1.jpg",
       price: "KSH.28000",
     },
+    // ── NAIVASHA NEW ────────────────────────────────────────────────────
+    {
+      name: "Lake Elementaita Mountain Lodge",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ELEMENTAITA LODGE/ELEMENTAITA 1.jpeg",
+      price: "KSH.30000",
+    },
+    {
+      name: "Kentwood Cabins Naivasha",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KENTWOOD CABINS/KENTWOOD 1.jpeg",
+      price: "KSH.8000",
+    },
+    {
+      name: "Boffar Cabins Naivasha",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 1.jpeg",
+      price: "KSH.8500",
+    },
+    {
+      name: "Shawmut Suites Nakuru",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 1.jpeg",
+      price: "KSH.10000",
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: "KSH.10000" },
+      ],
+    },
+    {
+      name: "1 Bedroom Luxore Apartment Syokimau",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/1B LUXORE APARTMENT, SYOKIMAU/LUXORE 1.jpeg",
+      price: "KSH.5000",
+    },
+    // ── NAIROBI NEW ─────────────────────────────────────────────────────
+    {
+      name: "5 Bedroom Garden Estate Nairobi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/5BED GARDEN ESTATE/GARDEN 1.jpeg",
+      price: "KSH.50000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.50000" },
+      ],
+    },
+    {
+      name: "4 Bedroom Kiserian Nairobi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 1.jpeg",
+      price: "KSH.50000",
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: "KSH.50000" },
+      ],
+    },
+    {
+      name: "3 Bedroom Navilla Springs Westlands",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/3B NAVILLA SPRINGS/NAVILLA 1.jpeg",
+      price: "KSH.20000",
+      extraServices: [
+        { label: "3 Bedroom + SQ (8 guests)", price: "KSH.20000" },
+      ],
+    },
+    {
+      name: "4 Bedroom Kilimani Nairobi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 1.jpeg",
+      price: "KSH.25000",
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: "KSH.25000" },
+      ],
+    },
+    {
+      name: "4 Bedroom Green Park Estate Athi River",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 1.jpeg",
+      price: "KSH.25000",
+      extraServices: [
+        { label: "4 Bedroom + SQ (10 guests)", price: "KSH.25000" },
+      ],
+    },
+    {
+      name: "5 Bedroom Garden Estate Nairobi (Budget)",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 1.jpeg",
+      price: "KSH.25000",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.25000" },
+      ],
+    },
+    {
+      name: "1 Bedroom Garden Estate Nairobi",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/1B GARDEN ESTATE/1BGARDEN 1.jpeg",
+      price: "KSH.5000",
+    },
+    // ── MASAI MARA NEW ──────────────────────────────────────────────────
+    {
+      name: "Kobe House Mara",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KOBE HOUSE MARA/KOBE 1.jpg",
+      price: "KSH.160000",
+      extraServices: [
+        { label: "4 Bedroom Full Board (8 guests)", price: "KSH.160000" },
+      ],
+    },
     // Golden Duranta Villas Diani
     {
       name: "Golden Duranta Villas Diani",

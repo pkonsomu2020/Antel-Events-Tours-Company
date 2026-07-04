@@ -10,12 +10,12 @@ export interface KenyaPackage {
 }
 
 export const kenyaPackages: KenyaPackage[] = [
-  // ── SHANZU ──────────────────────────────────────────────────────────────
+  // ── NYALI ───────────────────────────────────────────────────────────────
   {
     name: "Eden Beach Apartments, Shanzu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 1.jpg",
     price: "KSH.6500",
-    area: "Shanzu",
+    area: "Nyali",
     extraServices: [
       { label: "1 Bedroom", price: "KSH.9000" },
       { label: "2 Bedroom", price: "KSH.14000" },
@@ -26,16 +26,14 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "Serenity villa, Shanzu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
     price: "KSH.6000",
-    area: "Shanzu",
+    area: "Nyali",
   },
-  // ── MTWAPA ──────────────────────────────────────────────────────────────
   {
     name: "Studio Cottages, Mtwapa",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO1.jpg",
     price: "KSH.4500",
-    area: "Mtwapa",
+    area: "Nyali",
   },
-  // ── NYALI ───────────────────────────────────────────────────────────────
   {
     name: "Jumeirah Beachfront Apartments, Nyali",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 1.jpg",
@@ -99,17 +97,17 @@ export const kenyaPackages: KenyaPackage[] = [
       { label: "5 Bedroom (10 guests)", price: "KSH.30000" },
     ],
   },
+  {
+    name: "Swahili Beach Apartments",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
+    price: "KSH.25000",
+    area: "Nyali",
+  },
   // ── BAMBURI ─────────────────────────────────────────────────────────────
   {
     name: "Villa Mudzini, Bamburi",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 1.jpg",
     price: "KSH.20000",
-    area: "Bamburi",
-  },
-  {
-    name: "Swahili Beach Apartments",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
-    price: "KSH.25000",
     area: "Bamburi",
   },
   {
@@ -130,14 +128,22 @@ export const kenyaPackages: KenyaPackage[] = [
       { label: "3 Bedroom", price: "KSH.30000" },
     ],
   },
-  // ── MOMBASA ─────────────────────────────────────────────────────────────
+  // ── DIANI ───────────────────────────────────────────────────────────────
   {
     name: "Diani Reef Beach Hotel",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Reef hotel Nyali/REEF HOTEL 1.jpg",
     price: "KSH.22000",
-    area: "Mombasa",
+    area: "Diani",
   },
-  // ── DIANI ───────────────────────────────────────────────────────────────
+  {
+    name: "Milamax Beach Villa",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 1.jpeg",
+    price: "KSH.60000",
+    area: "Diani",
+    extraServices: [
+      { label: "5 Bedroom (12 guests)", price: "KSH.60000" },
+    ],
+  },
   {
     name: "Kwetu villas, Diani",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU1.jpg",
@@ -233,30 +239,42 @@ export const kenyaPackages: KenyaPackage[] = [
       { label: "4 Bedroom (8 guests)", price: "KSH.30000" },
     ],
   },
-  // ── WATAMU ──────────────────────────────────────────────────────────────
+  {
+    name: "Mandhari Villa",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 1.jpg",
+    price: "KSH.25000",
+    area: "Diani",
+  },
+  {
+    name: "Sultanas Villa",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 1.jpg",
+    price: "KSH.70000",
+    area: "Diani",
+  },
+  // ── WATAMU & MALINDI ────────────────────────────────────────────────────
   {
     name: "Bingo house, Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO HOUSE, WATAMU/BINGO 1.jpg",
     price: "KSH.72000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
   },
   {
     name: "Turtle bay villa, Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 1.jpg",
     price: "KSH.70000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
   },
   {
     name: "Medina Palms Beach Villas, Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Medina palms beach villas/MEDINA 1.jpg",
     price: "KSH.35000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
   },
   {
     name: "Kasa Tatu Villas Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 1.jpeg",
     price: "KSH.28000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "2 Bedroom (4 guests)", price: "KSH.28000" },
     ],
@@ -265,7 +283,7 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "Azura Villa Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZURA VILLA/Azura 1.jpeg",
     price: "KSH.50000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "4 Bedroom (8 guests)", price: "KSH.50000" },
     ],
@@ -274,7 +292,7 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "Bingo Family Villa Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO FAMILY VILLA/BINGO 1.jpeg",
     price: "KSH.80000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "5 Bedroom (16 guests)", price: "KSH.80000" },
     ],
@@ -283,7 +301,7 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "The White Villa Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/WHITE VILLAS/white 1.jpeg",
     price: "KSH.35000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "5 Bedroom (10 guests)", price: "KSH.35000" },
     ],
@@ -292,23 +310,22 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "Turtle Bay Villas Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLAS/TURTLE 1.jpeg",
     price: "KSH.30000",
-    area: "Watamu",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "5 Bedroom (10 guests)", price: "KSH.30000" },
     ],
   },
-  // ── MALINDI ─────────────────────────────────────────────────────────────
   {
     name: "Diamond dream of Africa, Malindi",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 1.jpg",
     price: "KSH.38000",
-    area: "Malindi",
+    area: "Watamu & Malindi",
   },
   {
     name: "Kijani Paradise Malindi",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KIJANI PARADISE/KIJANI 1.jpeg",
     price: "KSH.12000",
-    area: "Malindi",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "2 Bedroom (4 guests)", price: "KSH.12000" },
     ],
@@ -332,21 +349,44 @@ export const kenyaPackages: KenyaPackage[] = [
       { label: "4 Bedroom + SQ (10 guests)", price: "KSH.50000" },
     ],
   },
-  // ── MILAMAX ─────────────────────────────────────────────────────────────
-  {
-    name: "Milamax Beach Villa",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 1.jpeg",
-    price: "KSH.60000",
-    area: "Mombasa",
-    extraServices: [
-      { label: "5 Bedroom (12 guests)", price: "KSH.60000" },
-    ],
-  },
   // ── NAIVASHA ────────────────────────────────────────────────────────────
   {
     name: "Boffar Residence",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR RESIDENCE, NAIVASHA/BOFFAR 1.jpg",
     price: "KSH.20000",
+    area: "Naivasha",
+  },
+  {
+    name: "Lake Elementaita Mountain Lodge",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ELEMENTAITA LODGE/ELEMENTAITA 1.jpeg",
+    price: "KSH.30000",
+    area: "Naivasha",
+  },
+  {
+    name: "Kentwood Cabins Naivasha",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KENTWOOD CABINS/KENTWOOD 1.jpeg",
+    price: "KSH.8000",
+    area: "Naivasha",
+  },
+  {
+    name: "Boffar Cabins Naivasha",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 1.jpeg",
+    price: "KSH.8500",
+    area: "Naivasha",
+  },
+  {
+    name: "Shawmut Suites Nakuru",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 1.jpeg",
+    price: "KSH.10000",
+    area: "Naivasha",
+    extraServices: [
+      { label: "2 Bedroom (4 guests)", price: "KSH.10000" },
+    ],
+  },
+  {
+    name: "1 Bedroom Luxore Apartment Syokimau",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/1B LUXORE APARTMENT, SYOKIMAU/LUXORE 1.jpeg",
+    price: "KSH.5000",
     area: "Naivasha",
   },
   // ── KAREN (NAIROBI) ─────────────────────────────────────────────────────
@@ -357,15 +397,63 @@ export const kenyaPackages: KenyaPackage[] = [
     area: "Nairobi",
   },
   {
-    name: "Mandhari Villa",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 1.jpg",
-    price: "KSH.25000",
+    name: "5 Bedroom Garden Estate Nairobi",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/5BED GARDEN ESTATE/GARDEN 1.jpeg",
+    price: "KSH.50000",
     area: "Nairobi",
+    extraServices: [
+      { label: "5 Bedroom (10 guests)", price: "KSH.50000" },
+    ],
   },
   {
-    name: "Sultanas Villa",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 1.jpg",
-    price: "KSH.70000",
+    name: "4 Bedroom Kiserian Nairobi",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 1.jpeg",
+    price: "KSH.50000",
+    area: "Nairobi",
+    extraServices: [
+      { label: "4 Bedroom (8 guests)", price: "KSH.50000" },
+    ],
+  },
+  {
+    name: "3 Bedroom Navilla Springs Westlands",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/3B NAVILLA SPRINGS/NAVILLA 1.jpeg",
+    price: "KSH.20000",
+    area: "Nairobi",
+    extraServices: [
+      { label: "3 Bedroom + SQ (8 guests)", price: "KSH.20000" },
+    ],
+  },
+  {
+    name: "4 Bedroom Kilimani Nairobi",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 1.jpeg",
+    price: "KSH.25000",
+    area: "Nairobi",
+    extraServices: [
+      { label: "4 Bedroom (8 guests)", price: "KSH.25000" },
+    ],
+  },
+  {
+    name: "4 Bedroom Green Park Estate Athi River",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 1.jpeg",
+    price: "KSH.25000",
+    area: "Nairobi",
+    extraServices: [
+      { label: "4 Bedroom + SQ (10 guests)", price: "KSH.25000" },
+    ],
+  },
+  {
+    name: "5 Bedroom Garden Estate Nairobi (Budget)",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 1.jpeg",
+    price: "KSH.25000",
+    area: "Nairobi",
+    extraServices: [
+      { label: "5 Bedroom (10 guests)", price: "KSH.25000" },
+    ],
+  },
+  {
+    name: "1 Bedroom Garden Estate Nairobi",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/1B GARDEN ESTATE/1BGARDEN 1.jpeg",
+    price: "KSH.5000",
     area: "Nairobi",
   },
   // ── LUKENYA ─────────────────────────────────────────────────────────────
@@ -412,6 +500,15 @@ export const kenyaPackages: KenyaPackage[] = [
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/OLAKAIRA MARA HOMES/OLAKAIRA 1.jpg",
     price: "KSH.25000",
     area: "Masai Mara",
+  },
+  {
+    name: "Kobe House Mara",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KOBE HOUSE MARA/KOBE 1.jpg",
+    price: "KSH.160000",
+    area: "Masai Mara",
+    extraServices: [
+      { label: "4 Bedroom Full Board (8 guests)", price: "KSH.160000" },
+    ],
   },
 ];
 

@@ -6,6 +6,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ImageLightbox from "@/components/ImageLightbox";
 import ImageWithLoader from "@/components/ImageWithLoader";
 import { getMapUrl } from "@/lib/hotelCoordinates";
+import { getHotelDetail } from "@/lib/hotelDetails";
+import { Users, BedDouble, Utensils, CheckCircle, DollarSign } from "lucide-react";
 
 // Helper to slugify hotel names (must match the one used in the rest of the app)
 function slugify(str: string) {
@@ -539,6 +541,87 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 7.jpeg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/STAR VILLAS/STAR 8.jpeg",
     ],
+    [slugify("Kobe House Mara")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KOBE HOUSE MARA/KOBE 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KOBE HOUSE MARA/KOBE 2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KOBE HOUSE MARA/KOBE 3.jpg",
+    ],
+    [slugify("Lake Elementaita Mountain Lodge")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELEMENTAITA LODGE/ELEMENTAITA 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELEMENTAITA LODGE/ELEMENTAITA 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELEMENTAITA LODGE/ELEMENTAITA 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/ELEMENTAITA LODGE/ELEMENTAITA 4.jpeg",
+    ],
+    [slugify("Kentwood Cabins Naivasha")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KENTWOOD CABINS/KENTWOOD 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KENTWOOD CABINS/KENTWOOD 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KENTWOOD CABINS/KENTWOOD 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/KENTWOOD CABINS/KENTWOOD 4.jpeg",
+    ],
+    [slugify("Boffar Cabins Naivasha")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 6.jpeg",
+    ],
+    [slugify("Shawmut Suites Nakuru")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 5.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 6.jpeg",
+    ],
+    [slugify("1 Bedroom Luxore Apartment Syokimau")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/1B LUXORE APARTMENT, SYOKIMAU/LUXORE 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/1B LUXORE APARTMENT, SYOKIMAU/LUXORE 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/1B LUXORE APARTMENT, SYOKIMAU/LUXORE 3.jpeg",
+    ],
+    [slugify("5 Bedroom Garden Estate Nairobi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5BED GARDEN ESTATE/GARDEN 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5BED GARDEN ESTATE/GARDEN 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5BED GARDEN ESTATE/GARDEN 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5BED GARDEN ESTATE/GARDEN 4.jpeg",
+    ],
+    [slugify("4 Bedroom Kiserian Nairobi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KISERIAN/KISERIAN 5.jpeg",
+    ],
+    [slugify("3 Bedroom Navilla Springs Westlands")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/3B NAVILLA SPRINGS/NAVILLA 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/3B NAVILLA SPRINGS/NAVILLA 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/3B NAVILLA SPRINGS/NAVILLA 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/3B NAVILLA SPRINGS/NAVILLA 4.jpeg",
+    ],
+    [slugify("4 Bedroom Kilimani Nairobi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 4.jpeg",
+    ],
+    [slugify("4 Bedroom Green Park Estate Athi River")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 4.jpeg",
+    ],
+    [slugify("5 Bedroom Garden Estate Nairobi (Budget)")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 5.jpeg",
+    ],
+    [slugify("1 Bedroom Garden Estate Nairobi")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/1B GARDEN ESTATE/1BGARDEN 1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/1B GARDEN ESTATE/1BGARDEN 2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/1B GARDEN ESTATE/1BGARDEN 3.jpeg",
+    ],
   },
   thailand: {
     [slugify("Chanalai garden resort Thailand")]: [
@@ -812,6 +895,85 @@ const allPackages = {
         { label: "5 Bedroom (10 guests)", price: 30000 },
       ],
     },
+    // ── NAIVASHA NEW ────────────────────────────────────────────────────
+    {
+      name: "Lake Elementaita Mountain Lodge",
+      price: 30000,
+    },
+    {
+      name: "Kentwood Cabins Naivasha",
+      price: 8000,
+    },
+    {
+      name: "Boffar Cabins Naivasha",
+      price: 8500,
+    },
+    {
+      name: "Shawmut Suites Nakuru",
+      price: 10000,
+      extraServices: [
+        { label: "2 Bedroom (4 guests)", price: 10000 },
+      ],
+    },
+    {
+      name: "1 Bedroom Luxore Apartment Syokimau",
+      price: 5000,
+    },
+    // ── NAIROBI NEW ─────────────────────────────────────────────────────
+    {
+      name: "5 Bedroom Garden Estate Nairobi",
+      price: 50000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 50000 },
+      ],
+    },
+    {
+      name: "4 Bedroom Kiserian Nairobi",
+      price: 50000,
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: 50000 },
+      ],
+    },
+    {
+      name: "3 Bedroom Navilla Springs Westlands",
+      price: 20000,
+      extraServices: [
+        { label: "3 Bedroom + SQ (8 guests)", price: 20000 },
+      ],
+    },
+    {
+      name: "4 Bedroom Kilimani Nairobi",
+      price: 25000,
+      extraServices: [
+        { label: "4 Bedroom (8 guests)", price: 25000 },
+      ],
+    },
+    {
+      name: "4 Bedroom Green Park Estate Athi River",
+      price: 25000,
+      extraServices: [
+        { label: "4 Bedroom + SQ (10 guests)", price: 25000 },
+      ],
+    },
+    {
+      name: "5 Bedroom Garden Estate Nairobi (Budget)",
+      price: 25000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 25000 },
+      ],
+    },
+    {
+      name: "1 Bedroom Garden Estate Nairobi",
+      price: 5000,
+    },
+    // ── MASAI MARA NEW ──────────────────────────────────────────────────
+    {
+      name: "Kobe House Mara",
+      price: 160000,
+      extraServices: [
+        { label: "4 Bedroom Full Board (8 guests)", price: 160000 },
+      ],
+    },
     { name: "Eldon Villas Studio", price: 6500 },
     { name: "Isaac house Lukenya", price: 48000 },
     { name: "The Karen Residences", price: 90000 },
@@ -1032,6 +1194,93 @@ const HotelPackageBooking: React.FC = () => {
                 ))}
               </div>
             </div>
+            {/* ── Hotel Details Card ── */}
+            {(() => {
+              const detail = hotelSlug ? getHotelDetail(hotelSlug) : undefined;
+              if (!detail) return null;
+              return (
+                <div className="bg-white rounded-2xl shadow p-8 mt-8">
+                  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-orange-500">
+                    <BedDouble className="w-6 h-6" /> Property Details
+                  </h2>
+
+                  {/* Key stats row */}
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    <div className="flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold">
+                      <Users className="w-4 h-4" />
+                      Accommodates {detail.guests} guest{detail.guests !== 1 ? "s" : ""}
+                    </div>
+                    {detail.bedrooms && (
+                      <div className="flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        <BedDouble className="w-4 h-4" />
+                        {detail.bedrooms}
+                      </div>
+                    )}
+                    {detail.mealPlan && (
+                      <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        <Utensils className="w-4 h-4" />
+                        {detail.mealPlan}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Pricing table */}
+                  {detail.roomOptions && detail.roomOptions.length > 0 && (
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                        <DollarSign className="w-5 h-5 text-orange-500" /> Rates
+                      </h3>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm border-collapse">
+                          <thead>
+                            <tr className="bg-orange-500 text-white">
+                              <th className="text-left px-4 py-2 rounded-tl-lg">Room / Option</th>
+                              <th className="text-right px-4 py-2">KSh (per night)</th>
+                              <th className="text-right px-4 py-2 rounded-tr-lg">USD</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {detail.roomOptions.map((opt, i) => (
+                              <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                                <td className="px-4 py-2 font-medium">{opt.label}</td>
+                                <td className="px-4 py-2 text-right text-orange-600 font-bold">
+                                  KSh {opt.priceKsh.toLocaleString()}
+                                </td>
+                                <td className="px-4 py-2 text-right text-gray-500">
+                                  {opt.priceUsd ? `$${opt.priceUsd}` : "—"}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Highlights */}
+                  {detail.highlights && detail.highlights.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold mb-3">Highlights</h3>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {detail.highlights.map((h, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                            {h}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {detail.note && (
+                    <p className="mt-4 text-sm text-blue-700 bg-blue-50 rounded-lg px-4 py-3">
+                      {detail.note}
+                    </p>
+                  )}
+                </div>
+              );
+            })()}
+
             {/* Booking Tour Form below gallery */}
             <div className="bg-white rounded-2xl shadow p-8 mt-8">
               <h2 className="text-2xl font-bold mb-6">Booking Tour Form</h2>
