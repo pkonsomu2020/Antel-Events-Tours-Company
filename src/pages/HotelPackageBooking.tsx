@@ -193,9 +193,11 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 5.jpg",
     ],
     [slugify("Diamond dream of Africa, Malindi")]: [
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 1.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 2.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND_1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND_2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND_3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND_4.jpeg",
+
     ],
     [slugify("Medina Palms Beach Villas, Watamu")]: [
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Medina palms beach villas/MEDINA 1.jpg",

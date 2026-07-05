@@ -317,7 +317,7 @@ export const kenyaPackages: KenyaPackage[] = [
   },
   {
     name: "Diamond dream of Africa, Malindi",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND 1.jpg",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Diamond dream of Africa/DIAMOND_1.jpeg",
     price: "KSH.38000",
     area: "Watamu & Malindi",
   },
