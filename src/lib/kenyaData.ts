@@ -1,4 +1,4 @@
-// Shared Kenya hotel data with area tags
+﻿// Shared Kenya hotel data with area tags
 // Used by DestinationPackages (area cards) and KenyaAreaPackages (filtered hotel list)
 
 export interface KenyaPackage {
@@ -10,12 +10,12 @@ export interface KenyaPackage {
 }
 
 export const kenyaPackages: KenyaPackage[] = [
-  // ── NYALI ───────────────────────────────────────────────────────────────
+  // ── SHANZU ──────────────────────────────────────────────────────────────
   {
     name: "Eden Beach Apartments, Shanzu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 1.jpg",
     price: "KSH.6500",
-    area: "Nyali",
+    area: "Shanzu",
     extraServices: [
       { label: "1 Bedroom", price: "KSH.9000" },
       { label: "2 Bedroom", price: "KSH.14000" },
@@ -26,8 +26,9 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "Serenity villa, Shanzu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
     price: "KSH.6000",
-    area: "Nyali",
+    area: "Shanzu",
   },
+  // ── NYALI ───────────────────────────────────────────────────────────────
   {
     name: "Studio Cottages, Mtwapa",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO1.jpg",
@@ -330,12 +331,12 @@ export const kenyaPackages: KenyaPackage[] = [
       { label: "2 Bedroom (4 guests)", price: "KSH.12000" },
     ],
   },
-  // ── KILIFI ──────────────────────────────────────────────────────────────
+  // ── KILIFI → moved to Watamu & Malindi ──────────────────────────────────
   {
     name: "Azanza Holiday Homes Kilifi",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 1.jpeg",
     price: "KSH.20000",
-    area: "Kilifi",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "4 Bedroom (8 guests)", price: "KSH.20000" },
     ],
@@ -344,7 +345,7 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "Pazuri Homes Kilifi",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 1.jpeg",
     price: "KSH.50000",
-    area: "Kilifi",
+    area: "Watamu & Malindi",
     extraServices: [
       { label: "4 Bedroom + SQ (10 guests)", price: "KSH.50000" },
     ],
@@ -387,9 +388,16 @@ export const kenyaPackages: KenyaPackage[] = [
     name: "1 Bedroom Luxore Apartment Syokimau",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/1B LUXORE APARTMENT, SYOKIMAU/LUXORE 1.jpeg",
     price: "KSH.5000",
-    area: "Naivasha",
+    area: "Nairobi",
   },
-  // ── KAREN (NAIROBI) ─────────────────────────────────────────────────────
+  // ── NAIROBI ─────────────────────────────────────────────────────────────
+  {
+    name: "Isaac house Lukenya",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ISAAC HOUSE LUKENYA/ISAAC 1.jpg",
+    price: "KSH.48000",
+    area: "Nairobi",
+  },
+  // ── NAIROBI ─────────────────────────────────────────────────────────────
   {
     name: "The Karen Residences",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KAREN RESIDENCE/KAREN 1.jpg",
@@ -455,13 +463,6 @@ export const kenyaPackages: KenyaPackage[] = [
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/1B GARDEN ESTATE/1BGARDEN 1.jpeg",
     price: "KSH.5000",
     area: "Nairobi",
-  },
-  // ── LUKENYA ─────────────────────────────────────────────────────────────
-  {
-    name: "Isaac house Lukenya",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ISAAC HOUSE LUKENYA/ISAAC 1.jpg",
-    price: "KSH.48000",
-    area: "Lukenya",
   },
   // ── NANYUKI ─────────────────────────────────────────────────────────────
   {

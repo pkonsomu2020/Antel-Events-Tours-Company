@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+﻿import React, { useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -211,7 +211,7 @@ const allPackages = {
     },
     {
       name: "Swahili Beach Apartments",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
       price: "KSH.25000",
     },
     {
@@ -287,12 +287,12 @@ const allPackages = {
     },
     {
       name: "Boffar Cabins Naivasha",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BOFFAR CABINS/BOFFAR 4.jpeg",
       price: "KSH.8500",
     },
     {
       name: "Shawmut Suites Nakuru",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SHAWMUT SUITES/SHAWMUT 2.jpeg",
       price: "KSH.10000",
       extraServices: [
         { label: "2 Bedroom (4 guests)", price: "KSH.10000" },
@@ -330,7 +330,7 @@ const allPackages = {
     },
     {
       name: "4 Bedroom Kilimani Nairobi",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B KILIMANI/KILIMANI 2.jpeg",
       price: "KSH.25000",
       extraServices: [
         { label: "4 Bedroom (8 guests)", price: "KSH.25000" },
@@ -338,7 +338,7 @@ const allPackages = {
     },
     {
       name: "4 Bedroom Green Park Estate Athi River",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4B GREEN PARK ESTATE/GREENPARK 2.jpeg",
       price: "KSH.25000",
       extraServices: [
         { label: "4 Bedroom + SQ (10 guests)", price: "KSH.25000" },
@@ -346,7 +346,7 @@ const allPackages = {
     },
     {
       name: "5 Bedroom Garden Estate Nairobi (Budget)",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/5B GARDEN ESTATE (25K)/GARDEN 2.jpeg",
       price: "KSH.25000",
       extraServices: [
         { label: "5 Bedroom (10 guests)", price: "KSH.25000" },
@@ -432,7 +432,7 @@ const allPackages = {
     // Kasa Tatu Villas Watamu
     {
       name: "Kasa Tatu Villas Watamu",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KASA TATU VILLAS/KASA 9.jpeg",
       price: "KSH.28000",
       extraServices: [
         { label: "2 Bedroom (4 guests)", price: "KSH.28000" },
@@ -459,7 +459,7 @@ const allPackages = {
     // Milamax Beach Villa
     {
       name: "Milamax Beach Villa",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MILAMAX BEACH/Milamax 11.jpeg",
       price: "KSH.60000",
       extraServices: [
         { label: "5 Bedroom (12 guests)", price: "KSH.60000" },
@@ -486,7 +486,7 @@ const allPackages = {
     // Creek Beach Villa Nyali
     {
       name: "Creek Beach Villa Nyali",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/CREEK BEACH VILLA/CREEEK 8.jpeg",
       price: "KSH.50000",
       extraServices: [
         { label: "5 Bedroom (10 guests)", price: "KSH.50000" },
@@ -495,7 +495,7 @@ const allPackages = {
     // Zumaridi Villas Diani
     {
       name: "Zumaridi Villas Diani",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 1.jpeg",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ZUMARIDI VILLAS/Zumaridi 2.jpeg",
       price: "KSH.25000",
       extraServices: [
         { label: "2 Bedroom (4 guests)", price: "KSH.25000" },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -227,13 +227,13 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 5.jpg",
     ],
     [slugify("Swahili Beach Apartments")]: [
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach2.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 3.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach4.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach5.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach6.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach7.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach2.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 3.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach4.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach5.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach6.jpg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach7.jpg",
     ],
     [slugify("Serenity villa, Shanzu")]: [
       "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
