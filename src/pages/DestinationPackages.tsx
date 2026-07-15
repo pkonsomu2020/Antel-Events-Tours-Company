@@ -215,14 +215,23 @@ const allPackages = {
       price: "KSH.25000",
     },
     {
-      name: "Serenity villa, Shanzu",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
-      price: "KSH.6000",
-    },
-    {
       name: "Studio Cottages, Mtwapa",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO1.jpg",
       price: "KSH.4500",
+    },
+    {
+      name: "Prestige Hotel Mtwapa",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/PRESTIGE HOTEL/PRESTIGE_1.jpeg",
+      price: "KSH.5500",
+    },
+    {
+      name: "Seville Residency Shanzu",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SEVILLE RESIDENCY/SEVILLE_1.jpeg",
+      price: "KSH.4500",
+      extraServices: [
+        { label: "Studio", price: "KSH.4500" },
+        { label: "1 Bedroom", price: "KSH.6000" },
+      ],
     },
     {
       name: "Kwetu villas, Diani",

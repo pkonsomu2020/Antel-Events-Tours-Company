@@ -20,11 +20,24 @@ export interface HotelDetail {
 
 export const hotelDetails: Record<string, HotelDetail> = {
 
-  // ── MTWAPA ──────────────────────────────────────────────────
+  // ── MTWAPA / SHANZU ─────────────────────────────────────────
   "studio-cottages-mtwapa": {
     guests: 2, bedrooms: "Studio",
     roomOptions: [{ label: "Studio (Omnia Cottages)", priceKsh: 4506, priceUsd: 35 }],
     highlights: ["Mtwapa Mombasa", "Private cottage", "Self-catering"],
+  },
+  "prestige-hotel-mtwapa": {
+    guests: 2, bedrooms: "Hotel Room",
+    roomOptions: [{ label: "Hotel Room", priceKsh: 5500, priceUsd: 43 }],
+    highlights: ["Mtwapa Mombasa", "Budget-friendly", "2 guests"],
+  },
+  "seville-residency-shanzu": {
+    guests: 2, bedrooms: "Studio / 1 Bedroom",
+    roomOptions: [
+      { label: "Studio",    priceKsh: 4500, priceUsd: 35 },
+      { label: "1 Bedroom", priceKsh: 6000, priceUsd: 46 },
+    ],
+    highlights: ["Shanzu Mombasa", "Modern residency", "Self-catering"],
   },
 
   // ── SHANZU ──────────────────────────────────────────────────

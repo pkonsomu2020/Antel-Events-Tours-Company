@@ -10,12 +10,12 @@ export interface KenyaPackage {
 }
 
 export const kenyaPackages: KenyaPackage[] = [
-  // ── SHANZU ──────────────────────────────────────────────────────────────
+  // ── MTWAPA & SHANZU ─────────────────────────────────────────────────────
   {
     name: "Eden Beach Apartments, Shanzu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Eden beach apartments/EDEN 1.jpg",
     price: "KSH.6500",
-    area: "Shanzu",
+    area: "Mtwapa & Shanzu",
     extraServices: [
       { label: "1 Bedroom", price: "KSH.9000" },
       { label: "2 Bedroom", price: "KSH.14000" },
@@ -23,18 +23,46 @@ export const kenyaPackages: KenyaPackage[] = [
     ],
   },
   {
-    name: "Serenity villa, Shanzu",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
-    price: "KSH.6000",
-    area: "Shanzu",
-  },
-  // ── NYALI ───────────────────────────────────────────────────────────────
-  {
     name: "Studio Cottages, Mtwapa",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO1.jpg",
     price: "KSH.4500",
-    area: "Nyali",
+    area: "Mtwapa & Shanzu",
   },
+  {
+    name: "Azanza Holiday Homes Kilifi",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 1.jpeg",
+    price: "KSH.20000",
+    area: "Mtwapa & Shanzu",
+    extraServices: [
+      { label: "4 Bedroom (8 guests)", price: "KSH.20000" },
+    ],
+  },
+  {
+    name: "Pazuri Homes Kilifi",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 1.jpeg",
+    price: "KSH.50000",
+    area: "Mtwapa & Shanzu",
+    extraServices: [
+      { label: "4 Bedroom + SQ (10 guests)", price: "KSH.50000" },
+    ],
+  },
+  {
+    name: "Prestige Hotel Mtwapa",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/PRESTIGE HOTEL/PRESTIGE_1.jpeg",
+    price: "KSH.5500",
+    area: "Mtwapa & Shanzu",
+  },
+  {
+    name: "Seville Residency Shanzu",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/SEVILLE RESIDENCY/SEVILLE_1.jpeg",
+    price: "KSH.4500",
+    area: "Mtwapa & Shanzu",
+    extraServices: [
+      { label: "Studio", price: "KSH.4500" },
+      { label: "1 Bedroom", price: "KSH.6000" },
+    ],
+  },
+  // ── NYALI ───────────────────────────────────────────────────────────────
   {
     name: "Jumeirah Beachfront Apartments, Nyali",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 1.jpg",
@@ -329,25 +357,6 @@ export const kenyaPackages: KenyaPackage[] = [
     area: "Watamu & Malindi",
     extraServices: [
       { label: "2 Bedroom (4 guests)", price: "KSH.12000" },
-    ],
-  },
-  // ── KILIFI → moved to Watamu & Malindi ──────────────────────────────────
-  {
-    name: "Azanza Holiday Homes Kilifi",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/AZANZA HOLIDAY HOMES/Azanza 1.jpeg",
-    price: "KSH.20000",
-    area: "Watamu & Malindi",
-    extraServices: [
-      { label: "4 Bedroom (8 guests)", price: "KSH.20000" },
-    ],
-  },
-  {
-    name: "Pazuri Homes Kilifi",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/PAZURI HOMES/PAZURI 1.jpeg",
-    price: "KSH.50000",
-    area: "Watamu & Malindi",
-    extraServices: [
-      { label: "4 Bedroom + SQ (10 guests)", price: "KSH.50000" },
     ],
   },
   // ── NAIVASHA ────────────────────────────────────────────────────────────

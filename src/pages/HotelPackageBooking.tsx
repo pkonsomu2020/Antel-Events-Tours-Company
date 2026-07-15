@@ -235,18 +235,22 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach6.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach7.jpg",
     ],
-    [slugify("Serenity villa, Shanzu")]: [
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY1.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY 2.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY3.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY4.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/SERENITY VILLA/SERENITY5.jpg",
-    ],
     [slugify("Studio Cottages, Mtwapa")]: [
       "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO1.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO2.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO3.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/STUDIO COTTAGES/STUDIO4.jpg",
+    ],
+    [slugify("Prestige Hotel Mtwapa")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PRESTIGE HOTEL/PRESTIGE_1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PRESTIGE HOTEL/PRESTIGE_2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/PRESTIGE HOTEL/PRESTIGE_3.jpeg",
+    ],
+    [slugify("Seville Residency Shanzu")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SEVILLE RESIDENCY/SEVILLE_1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SEVILLE RESIDENCY/SEVILLE_2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SEVILLE RESIDENCY/SEVILLE_3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/SEVILLE RESIDENCY/SEVILLE_4.jpeg",
     ],
     [slugify("Kwetu villas, Diani")]: [
       "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU1.jpg",
@@ -993,8 +997,16 @@ const allPackages = {
     { name: "Diani Reef Beach Hotel", price: 22000 },
     { name: "Villa Mudzini, Bamburi", price: 20000 },
     { name: "Swahili Beach Apartments", price: 25000 },
-    { name: "Serenity villa, Shanzu", price: 6000 },
     { name: "Studio Cottages, Mtwapa", price: 4500 },
+    { name: "Prestige Hotel Mtwapa", price: 5500 },
+    {
+      name: "Seville Residency Shanzu",
+      price: 4500,
+      extraServices: [
+        { label: "Studio", price: 4500 },
+        { label: "1 Bedroom", price: 6000 },
+      ],
+    },
     { name: "Kwetu villas, Diani", price: 55000 },
     { name: "Zhuri villas, Diani", price: 40000 },
   ],
