@@ -343,88 +343,35 @@ const EventPackageDetail: React.FC = () => {
                 </div>
               )}
             </div>
-            {/* Booking Tour Form below event details */}
+            {/* Booking Tour Form — temporarily disabled */}
             <div className="bg-white rounded-2xl shadow p-8 mt-8">
-              <h2 className="text-2xl font-bold mb-6">Booking Tour Form</h2>
-              <form className="space-y-4">
-                <div className="space-y-2">
-                  <label htmlFor="fullName" className="block font-medium">Full Name</label>
-                  <input id="fullName" type="text" placeholder="Your Full Name" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+              <h2 className="text-2xl font-bold mb-6">Book This Package</h2>
+              <div className="flex flex-col items-center justify-center py-8 text-center gap-5">
+                <p className="text-lg font-semibold text-gray-700">Book via WhatsApp or Call us</p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://wa.me/254725814767"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-full transition-all shadow text-lg"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.52 5.847L0 24l6.335-1.498A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.5-5.207-1.377l-.373-.22-3.864.914.965-3.768-.242-.387A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                    </svg>
+                    WhatsApp
+                  </a>
+                  <a
+                    href="tel:+254725814767"
+                    className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-full transition-all shadow text-lg"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    Call Us
+                  </a>
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block font-medium">Email</label>
-                  <input id="email" type="email" placeholder="Your Email" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="country" className="block font-medium">Country</label>
-                  <input id="country" type="text" placeholder="Country" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="guests" className="block font-medium">Number of Guests</label>
-                  <input id="guests" type="number" placeholder="Number of Guests" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="female" className="block font-medium">Number of Female</label>
-                  <input id="female" type="number" placeholder="Number of Female" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="male" className="block font-medium">Number of Male</label>
-                  <input id="male" type="number" placeholder="Number of Male" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="kids" className="block font-medium">Number of Kids</label>
-                  <input id="kids" type="number" placeholder="Number of Kids" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="kidsAge" className="block font-medium">Average Age of Kids</label>
-                  <input id="kidsAge" type="number" placeholder="Average Age of Kids" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="mealPlan" className="block font-medium">Meal Plan</label>
-                  <select id="mealPlan" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
-                    <option>Meal Plan</option>
-                    <option>None</option>
-                    <option>Breakfast only</option>
-                    <option>All Inclusive</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="purpose" className="block font-medium">Purpose of Visit</label>
-                  <select id="purpose" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
-                    <option>Purpose of Visit</option>
-                    <option>Business</option>
-                    <option>Vacation</option>
-                  </select>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-1 space-y-2">
-                    <label htmlFor="arrival" className="block font-medium">Arrival date</label>
-                    <input id="arrival" type="date" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <label htmlFor="departure" className="block font-medium">Departure date</label>
-                    <input id="departure" type="date" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="itinerary" className="block font-medium">Need an itinerary?</label>
-                  <select id="itinerary" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
-                    <option>Need an itinerary?</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="travelOption" className="block font-medium">Travel Option</label>
-                  <select id="travelOption" className="w-full border rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-200">
-                    <option>Travel Option</option>
-                    <option>SGR</option>
-                    <option>Flight</option>
-                    <option>Self-drive</option>
-                  </select>
-                </div>
-                <button type="submit" className="w-full bg-orange-500 text-white font-semibold py-3 rounded-full shadow hover:bg-orange-600 transition-all text-lg mt-4">Book Now</button>
-              </form>
+                <p className="text-sm text-gray-400">+254 725 814767</p>
+              </div>
             </div>
           </div>
           {/* Sidebar */}
