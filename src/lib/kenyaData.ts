@@ -66,13 +66,13 @@ export const kenyaPackages: KenyaPackage[] = [
   {
     name: "Jumeirah Beachfront Apartments, Nyali",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 1.jpg",
-    price: "KSH.30000",
+    price: "KSH.38626",
     area: "Nyali",
   },
   {
     name: "Almasi Beach apartments, Nyali",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Almasi beach apartments/ALMASI 1.jpg",
-    price: "KSH.25000",
+    price: "KSH.25751",
     area: "Nyali",
   },
   {
@@ -129,14 +129,14 @@ export const kenyaPackages: KenyaPackage[] = [
   {
     name: "Swahili Beach Apartments",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
-    price: "KSH.25000",
+    price: "KSH.25751",
     area: "Nyali",
   },
   // ── BAMBURI ─────────────────────────────────────────────────────────────
   {
     name: "Villa Mudzini, Bamburi",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 1.jpg",
-    price: "KSH.20000",
+    price: "KSH.25751",
     area: "Bamburi",
   },
   {
@@ -176,13 +176,13 @@ export const kenyaPackages: KenyaPackage[] = [
   {
     name: "Kwetu villas, Diani",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU1.jpg",
-    price: "KSH.55000",
+    price: "KSH.70816",
     area: "Diani",
   },
   {
     name: "Zhuri villas, Diani",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI1.jpg",
-    price: "KSH.40000",
+    price: "KSH.45064",
     area: "Diani",
   },
   {
@@ -217,10 +217,22 @@ export const kenyaPackages: KenyaPackage[] = [
     area: "Diani",
   },
   {
-    name: "Kwetu Villas Diani (5 Bedroom)",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 1.jpeg",
-    price: "KSH.60000",
+    name: "Villa Branca Diani",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Villa Branca/BRANCA_1.jpeg",
+    price: "KSH.206736",
     area: "Diani",
+    extraServices: [
+      { label: "5 Bedroom (10 guests)", price: "KSH.206736" },
+    ],
+  },
+  {
+    name: "Watano Beach House Diani",
+    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_1.jpeg",
+    price: "KSH.516840",
+    area: "Diani",
+    extraServices: [
+      { label: "8 Bedroom (16 guests)", price: "KSH.516840" },
+    ],
   },
   {
     name: "Jamii Villas Diani",
@@ -274,23 +286,17 @@ export const kenyaPackages: KenyaPackage[] = [
     price: "KSH.25000",
     area: "Diani",
   },
-  {
-    name: "Sultanas Villa",
-    image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 1.jpg",
-    price: "KSH.70000",
-    area: "Diani",
-  },
   // ── WATAMU & MALINDI ────────────────────────────────────────────────────
   {
     name: "Bingo house, Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO HOUSE, WATAMU/BINGO 1.jpg",
-    price: "KSH.72000",
+    price: "KSH.90129",
     area: "Watamu & Malindi",
   },
   {
     name: "Turtle bay villa, Watamu",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 1.jpg",
-    price: "KSH.70000",
+    price: "KSH.6437",
     area: "Watamu & Malindi",
   },
   {
@@ -502,7 +508,7 @@ export const kenyaPackages: KenyaPackage[] = [
   {
     name: "Pride Inn Mara Camp",
     image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 1.jpg",
-    price: "KSH.65000",
+    price: "KSH.64500",
     area: "Masai Mara",
   },
   {

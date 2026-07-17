@@ -385,7 +385,14 @@ const EventPackageDetail: React.FC = () => {
                 <input type="date" className="w-full border rounded px-4 py-2" />
               </div>
               <div className="font-semibold text-lg mb-4">Price: <span className="text-orange-500 font-bold">{event.price}</span></div>
-              <button className="w-full bg-orange-500 text-white font-semibold py-3 rounded shadow hover:bg-orange-600 transition-all text-lg" onClick={addToCart}>Book Now</button>
+              <button
+                disabled
+                className="w-full bg-gray-300 text-gray-500 font-semibold py-3 rounded shadow cursor-not-allowed text-lg"
+                title="Booking temporarily unavailable"
+              >
+                Book Now
+              </button>
+              <p className="text-center text-sm text-gray-400 mt-1">Use WhatsApp or Call to book</p>
             </div>
             {/* Map Location Card */}
             <div className="bg-white rounded-xl shadow p-6">

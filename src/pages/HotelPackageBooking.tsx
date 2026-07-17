@@ -170,11 +170,6 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 4.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 5.jpg",
     ],
-    [slugify("Sultanas Villa")]: [
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 1.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 2.jpg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 3.jpg",
-    ],
     [slugify("Mandhari Villa")]: [
       "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 1.jpg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA MANDHARI/MANDHARI 2.jpg",
@@ -320,15 +315,18 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 5.jpeg",
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Golden Sun Beach Resort/Golden Sun 6.jpeg",
     ],
-    [slugify("Kwetu Villas Diani (5 Bedroom)")]: [
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 1.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 2.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 3.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 4.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 5.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 6.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 7.jpeg",
-      "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 8.jpeg",
+    [slugify("Villa Branca Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Villa Branca/BRANCA_1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Villa Branca/BRANCA_2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Villa Branca/BRANCA_3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Villa Branca/BRANCA_4.jpeg",
+    ],
+    [slugify("Watano Beach House Diani")]: [
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_1.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_2.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_3.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_4.jpeg",
+      "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_5.jpeg",
     ],
     [slugify("Jamii Villas Diani")]: [
       "/ANTEL HOTELS/KENYAN DESTINATIONS/Jamii Villas/JAMII 1.jpeg",
@@ -659,9 +657,34 @@ const hotelGalleries: Record<string, Record<string, string[]>> = {
 // Add or import allPackages from DestinationPackages.tsx
 const allPackages = {
   "south-africa": [
-    { name: "Lagoon Beach Hotel and Spa, Cape Town", price: 15000 },
-    { name: "Premier Hotel,Cape Town", price: 16000 },
-    { name: "Atlantic Palms, Cape Town", price: 20000 },
+    { name: "Lagoon Beach Hotel and Spa, Cape Town", price: 14212 },
+    { name: "Premier Hotel,Cape Town", price: 15504 },
+    { name: "Atlantic Palms, Cape Town", price: 19380 },
+  ],
+  seychelles: [
+    { name: "Pineapple Beach Villas, Seychelles", price: 45220 },
+    { name: "Palm Beach Hotel, Seychelles", price: 32300 },
+    { name: "Oasis Hotel Restaurant and spa, Seychelles", price: 45220 },
+  ],
+  rwanda: [
+    { name: "The Retreat, Rwanda", price: 58140 },
+    { name: "4 Bedroom Villa, Rwanda", price: 25840 },
+    { name: "The Manor Hotel, Rwanda", price: 23256 },
+  ],
+  mauritius: [
+    { name: "Lagoon Attitude Hotel, Mauritius", price: 45220 },
+    { name: "Solana Beach, Mauritius", price: 28424 },
+    { name: "Villa Anakao, Mauritius", price: 25840 },
+  ],
+  zanzibar: [
+    { name: "Jungle Paradise Beach Resort & Spa, Zanzibar", price: 32250 },
+    { name: "Zanzibar Beach Resort", price: 19380 },
+    { name: "Warere Beach Resort, Zanzibar", price: 32300 },
+  ],
+  thailand: [
+    { name: "Chanalai garden resort Thailand", price: 12920 },
+    { name: "Phuket Marriott resort and spa", price: 32300 },
+    { name: "Amari Phuket in Thailand", price: 25840 },
   ],
   kenya: [
     // Eden Beach Apartments in Shanzu
@@ -722,10 +745,21 @@ const allPackages = {
       name: "Golden Sun and Sand Beach Studio Apartments Diani",
       price: 6000,
     },
-    // Kwetu Villas Diani (5 Bedroom)
+    // Villa Branca Diani
     {
-      name: "Kwetu Villas Diani (5 Bedroom)",
-      price: 60000,
+      name: "Villa Branca Diani",
+      price: 200000,
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: 200000 },
+      ],
+    },
+    // Watano Beach House Diani
+    {
+      name: "Watano Beach House Diani",
+      price: 500000,
+      extraServices: [
+        { label: "8 Bedroom (16 guests)", price: 500000 },
+      ],
     },
     // Jamii Villas Diani
     {
@@ -985,18 +1019,17 @@ const allPackages = {
     { name: "The Karen Residences", price: 90000 },
     { name: "Boffar Residence", price: 20000 },
     { name: "Lifestyle villa", price: 25000 },
-    { name: "Pride Inn Mara Camp", price: 65000 },
-    { name: "Sultanas Villa", price: 70000 },
+    { name: "Pride Inn Mara Camp", price: 64500 },
     { name: "Mandhari Villa", price: 25000 },
-    { name: "Bingo house, Watamu", price: 72000 },
-    { name: "Turtle bay villa, Watamu", price: 70000 },
+    { name: "Bingo house, Watamu", price: 90129 },
+    { name: "Turtle bay villa, Watamu", price: 6437 },
     { name: "Diamond dream of Africa, Malindi", price: 38000 },
     { name: "Medina Palms Beach Villas, Watamu", price: 35000 },
-    { name: "Jumeirah Beachfront Apartments, Nyali", price: 30000 },
-    { name: "Almasi Beach apartments, Nyali", price: 25000 },
+    { name: "Jumeirah Beachfront Apartments, Nyali", price: 38626 },
+    { name: "Almasi Beach apartments, Nyali", price: 25751 },
     { name: "Diani Reef Beach Hotel", price: 22000 },
-    { name: "Villa Mudzini, Bamburi", price: 20000 },
-    { name: "Swahili Beach Apartments", price: 25000 },
+    { name: "Villa Mudzini, Bamburi", price: 25751 },
+    { name: "Swahili Beach Apartments", price: 25751 },
     { name: "Studio Cottages, Mtwapa", price: 4500 },
     { name: "Prestige Hotel Mtwapa", price: 5500 },
     {
@@ -1007,8 +1040,8 @@ const allPackages = {
         { label: "1 Bedroom", price: 6000 },
       ],
     },
-    { name: "Kwetu villas, Diani", price: 55000 },
-    { name: "Zhuri villas, Diani", price: 40000 },
+    { name: "Kwetu villas, Diani", price: 70816 },
+    { name: "Zhuri villas, Diani", price: 45064 },
   ],
   // Add other destinations as needed
 };
@@ -1576,7 +1609,15 @@ const HotelPackageBooking: React.FC = () => {
               <div className="text-center mb-6">
                 <div className="text-lg">Total Price <span className="text-2xl font-bold">KSh{totalPrice.toLocaleString()}</span></div>
               </div>
-              <button type="button" className="w-full bg-orange-500 text-white font-semibold py-3 rounded shadow hover:bg-orange-600 transition-all text-lg" onClick={addToCart}>Book Now</button>
+              <button
+                type="button"
+                disabled
+                className="w-full bg-gray-300 text-gray-500 font-semibold py-3 rounded shadow cursor-not-allowed text-lg"
+                title="Booking temporarily unavailable"
+              >
+                Book Now
+              </button>
+              <p className="text-center text-sm text-gray-400 mt-1">Use WhatsApp or Call to book</p>
             </div>
             {/* Map Location Card */}
             <div className="bg-white rounded-xl shadow p-6">

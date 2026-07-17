@@ -24,102 +24,102 @@ const allPackages = {
     {
       name: "Chanalai garden resort Thailand",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Chanalai Garden/Chanalai 1.jpg",
-      price: "KSH.13000",
+      price: "KSH.12920",
     },
     {
       name: "Phuket Marriott resort and spa",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Phuket Marriott resort and spa/PHUKET 1.jpg",
-      price: "KSH.32000",
+      price: "KSH.32300",
     },
     {
       name: "Amari Phuket in Thailand",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/THAILAND/Amari Phuket/AMARI 1.jpg",
-      price: "KSH.26000",
+      price: "KSH.25840",
     },
   ],
   "south-africa": [
     {
       name: "Lagoon Beach Hotel and Spa, Cape Town",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Lagoon beach hotel and spa/LAGOON 1.jpg",
-      price: "KSH.15000",
+      price: "KSH.14212",
     },
     {
       name: "Premier Hotel,Cape Town",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Premier hotel/Premier 1.jpg",
-      price: "KSH.16000",
+      price: "KSH.15504",
     },
     {
       name: "Atlantic Palms, Cape Town",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SOUTH AFRICA DESTINATIONS/Atlantic palms/ATLANTIC 1.jpg",
-      price: "KSH.20000",
+      price: "KSH.19380",
     },
   ],
   seychelles: [
     {
       name: "Pineapple Beach Villas, Seychelles",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Pineapple Beach villas/PINEAPPLE VILLA 1.jpg",
-      price: "KSH.45000",
+      price: "KSH.45220",
     },
     {
       name: "Palm Beach Hotel, Seychelles",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Palm beach hotel Seychelles/PALM BEACH 1.jpg",
-      price: "KSH.32000",
+      price: "KSH.32300",
     },
     {
       name: "Oasis Hotel Restaurant and spa, Seychelles",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/SEYCHELLES DESTINATIONS/Oasis hotel restaurant/OASIS 1.jpg",
-      price: "KSH.30000",
+      price: "KSH.45220",
     },
   ],
   rwanda: [
     {
       name: "The Retreat, Rwanda",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/THE RETREAT, RWANDA/THE RETREAT 1.jpg",
-      price: "KSH.58000",
+      price: "KSH.58140",
     },
     {
       name: "4 Bedroom Villa, Rwanda",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/4 BR VILLA, RWANDA/RWANDA VILLA 1.jpg",
-      price: "KSH.26000",
+      price: "KSH.25840",
     },
     {
       name: "The Manor Hotel, Rwanda",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/RWANDA DESTINATIONS/MANOR HOTEL, RWANDA/MANOR HOTEL 1.jpg",
-      price: "KSH.24000",
+      price: "KSH.23256",
     },
   ],
   mauritius: [
     {
       name: "Lagoon Attitude Hotel, Mauritius",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/LAGOON ATTITUDE HOTEL, MAURITIUS/LAGOON ATT 1.jpg",
-      price: "KSH.35000",
+      price: "KSH.45220",
     },
     {
       name: "Solana Beach, Mauritius",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/SOLANA BEACH, MAURITIUS/SOLANA BEACH 1.jpg",
-      price: "KSH.28000",
+      price: "KSH.28424",
     },
     {
       name: "Villa Anakao, Mauritius",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/MAURITIUS DESTINATIONS/VILLA ANAKAO, MAURITIUS/VILLA ANAKAO 1.jpg",
-      price: "KSH.26000",
+      price: "KSH.25840",
     },
   ],
   zanzibar: [
     {
       name: "Jungle Paradise Beach Resort & Spa, Zanzibar",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/JUNGLE PARADISE, ZANZIBAR/JUNGLE PARADISE 1.jpg",
-      price: "KSH.32000",
+      price: "KSH.32250",
     },
     {
       name: "Zanzibar Beach Resort",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/ZANZIBAR BEACH RESORT/ZANZIBAR BEACH 1.jpg",
-      price: "KSH.20000",
+      price: "KSH.19380",
     },
     {
       name: "Warere Beach Resort, Zanzibar",
       image: "/ANTEL HOTELS/INTERNATIONAL DESTINATIONS/ZANZIBAR DESTINATIONS/WARERE BEACH RESORT, ZANZIBAR/WARERE BEACH 1.jpg",
-      price: "KSH.32000",
+      price: "KSH.32300",
     },
   ],
   kenya: [
@@ -157,12 +157,7 @@ const allPackages = {
     {
       name: "Pride Inn Mara Camp",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/MAASAI MARA TENTS/MAASAI 1.jpg",
-      price: "KSH.65000",
-    },
-    {
-      name: "Sultanas Villa",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/VILLA SULTANAS/SULTANAS 1.jpg",
-      price: "KSH.70000",
+      price: "KSH.64500",
     },
     {
       name: "Mandhari Villa",
@@ -172,12 +167,12 @@ const allPackages = {
     {
       name: "Bingo house, Watamu",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/BINGO HOUSE, WATAMU/BINGO 1.jpg",
-      price: "KSH.72000",
+      price: "KSH.90129",
     },
     {
       name: "Turtle bay villa, Watamu",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/TURTLE BAY VILLA/TURTLE 1.jpg",
-      price: "KSH.70000",
+      price: "KSH.6437",
     },
     {
       name: "Diamond dream of Africa, Malindi",
@@ -192,12 +187,12 @@ const allPackages = {
     {
       name: "Jumeirah Beachfront Apartments, Nyali",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Jumeirah beachfront apartments/JUMEIRAH 1.jpg",
-      price: "KSH.30000",
+      price: "KSH.38626",
     },
     {
       name: "Almasi Beach apartments, Nyali",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Almasi beach apartments/ALMASI 1.jpg",
-      price: "KSH.25000",
+      price: "KSH.25751",
     },
     {
       name: "Diani Reef Beach Hotel",
@@ -207,12 +202,12 @@ const allPackages = {
     {
       name: "Villa Mudzini, Bamburi",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/4BR VILLA, BAMBURI/BAMBURI VILLA 1.jpg",
-      price: "KSH.20000",
+      price: "KSH.25751",
     },
     {
       name: "Swahili Beach Apartments",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Swahili beach apartments/swahilibeach 1.jpg",
-      price: "KSH.25000",
+      price: "KSH.25751",
     },
     {
       name: "Studio Cottages, Mtwapa",
@@ -236,12 +231,12 @@ const allPackages = {
     {
       name: "Kwetu villas, Diani",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/KWETU VILLAS/KWETU1.jpg",
-      price: "KSH.55000",
+      price: "KSH.70816",
     },
     {
       name: "Zhuri villas, Diani",
       image: "/ANTEL HOTELS/KENYAN DESTINATIONS/ZHURI VILLAS/ZHURI1.jpg",
-      price: "KSH.40000",
+      price: "KSH.45064",
     },
     // Olakaira Mara Homes in Masai Mara
     {
@@ -392,9 +387,20 @@ const allPackages = {
     },
     // Kwetu Villas Diani (updated listing)
     {
-      name: "Kwetu Villas Diani (5 Bedroom)",
-      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Kwetu Villas - NEW/KWETU 1.jpeg",
-      price: "KSH.60000",
+      name: "Villa Branca Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Villa Branca/BRANCA_1.jpeg",
+      price: "KSH.206736",
+      extraServices: [
+        { label: "5 Bedroom (10 guests)", price: "KSH.206736" },
+      ],
+    },
+    {
+      name: "Watano Beach House Diani",
+      image: "/ANTEL HOTELS/KENYAN DESTINATIONS/Watano beach house/WATANO_1.jpeg",
+      price: "KSH.516840",
+      extraServices: [
+        { label: "8 Bedroom (16 guests)", price: "KSH.516840" },
+      ],
     },
     // Jamii Villas Diani
     {

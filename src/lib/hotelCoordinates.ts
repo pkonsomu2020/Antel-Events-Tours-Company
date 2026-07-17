@@ -164,6 +164,12 @@ export const hotelMapUrls: Record<string, string> = {
   "kwetu-villas-diani": mapQ(
     "Kwetu Villas Diani Beach Kenya", 15
   ),
+  "villa-branca-diani": mapQ(
+    "Villa Branca Diani Beach Kenya", 15
+  ),
+  "watano-beach-house-diani": mapQ(
+    "Watano Beach House Diani Beach Kenya", 15
+  ),
   "zhuri-villas-diani": mapQ(
     "Zhuri Villas Diani Beach Kenya", 15
   ),

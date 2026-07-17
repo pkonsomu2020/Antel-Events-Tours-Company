@@ -23,7 +23,7 @@ export const hotelDetails: Record<string, HotelDetail> = {
   // ── MTWAPA / SHANZU ─────────────────────────────────────────
   "studio-cottages-mtwapa": {
     guests: 2, bedrooms: "Studio",
-    roomOptions: [{ label: "Studio (Omnia Cottages)", priceKsh: 4506, priceUsd: 35 }],
+    roomOptions: [{ label: "Studio (Omnia Cottages)", priceKsh: 4500, priceUsd: 35 }],
     highlights: ["Mtwapa Mombasa", "Private cottage", "Self-catering"],
   },
   "prestige-hotel-mtwapa": {
@@ -64,14 +64,14 @@ export const hotelDetails: Record<string, HotelDetail> = {
   "jumeirah-beachfront-apartments-nyali": {
     guests: 8, bedrooms: "3–4 Bedrooms",
     roomOptions: [
-      { label: "3 Bedroom", priceKsh: 38626, priceUsd: 299 },
-      { label: "4 Bedroom", priceKsh: 51502, priceUsd: 399 },
+      { label: "3 Bedroom", priceKsh: 30000, priceUsd: 232 },
+      { label: "4 Bedroom", priceKsh: 40000, priceUsd: 309 },
     ],
     highlights: ["Beachfront", "Nyali Mombasa", "Fully furnished"],
   },
   "almasi-beach-apartments-nyali": {
     guests: 6, bedrooms: "3 Bedrooms + SQ",
-    roomOptions: [{ label: "3 Bedroom + SQ", priceKsh: 25751, priceUsd: 199 }],
+    roomOptions: [{ label: "3 Bedroom + SQ", priceKsh: 25000, priceUsd: 193 }],
     highlights: ["Beachfront", "Nyali Mombasa", "SQ included"],
   },
   "4-bedroom-apartment-in-nyali-with-sq": {
@@ -107,8 +107,8 @@ export const hotelDetails: Record<string, HotelDetail> = {
   "swahili-beach-apartments": {
     guests: 6, bedrooms: "3 Bedrooms",
     roomOptions: [
-      { label: "Executive Apartment", priceKsh: 25751, priceUsd: 199 },
-      { label: "Sea View Apartment",  priceKsh: 28326, priceUsd: 219 },
+      { label: "Executive Apartment", priceKsh: 25000, priceUsd: 193 },
+      { label: "Sea View Apartment",  priceKsh: 28000, priceUsd: 216 },
     ],
     highlights: ["Nyali Mombasa", "Beachfront", "Sea views available"],
   },
@@ -116,7 +116,7 @@ export const hotelDetails: Record<string, HotelDetail> = {
   // ── BAMBURI ─────────────────────────────────────────────────
   "villa-mudzini-bamburi": {
     guests: 8, bedrooms: "4 Bedrooms",
-    roomOptions: [{ label: "4 Bedroom Standalone Villa", priceKsh: 25751, priceUsd: 199 }],
+    roomOptions: [{ label: "4 Bedroom Standalone Villa", priceKsh: 20000, priceUsd: 155 }],
     highlights: ["Bamburi Mombasa", "Private villa", "Stand-alone"],
   },
   "aurelia-sands-beachfront-apartment-bamburi": {
@@ -149,12 +149,12 @@ export const hotelDetails: Record<string, HotelDetail> = {
   },
   "kwetu-villas-diani": {
     guests: 10, bedrooms: "5 Bedrooms",
-    roomOptions: [{ label: "5 Bedroom Villa (Private Pool)", priceKsh: 70816, priceUsd: 549 }],
+    roomOptions: [{ label: "5 Bedroom Villa (Private Pool)", priceKsh: 55000, priceUsd: 426 }],
     highlights: ["Diani Beach", "Private swimming pool", "Accommodates 10 guests"],
   },
   "zhuri-villas-diani": {
     guests: 10, bedrooms: "5 Bedrooms",
-    roomOptions: [{ label: "5 Bedroom Villa", priceKsh: 45064, priceUsd: 349 }],
+    roomOptions: [{ label: "5 Bedroom Villa", priceKsh: 40000, priceUsd: 309 }],
     highlights: ["Diani Beach", "Private villa", "Accommodates 10 guests"],
   },
   "pendo-villas-diani": {
@@ -179,11 +179,6 @@ export const hotelDetails: Record<string, HotelDetail> = {
     guests: 2, bedrooms: "Studio",
     roomOptions: [{ label: "Studio Apartment", priceKsh: 6000, priceUsd: 46 }],
     highlights: ["Diani Beach", "Budget-friendly", "Couples / solo travellers"],
-  },
-  "kwetu-villas-diani-5-bedroom": {
-    guests: 10, bedrooms: "5 Bedrooms",
-    roomOptions: [{ label: "5 Bedroom Villa", priceKsh: 60000, priceUsd: 465 }],
-    highlights: ["Diani Beach", "Private villa", "Accommodates 10 guests"],
   },
   "jamii-villas-diani": {
     guests: 10, bedrooms: "5 Bedrooms",
@@ -220,24 +215,34 @@ export const hotelDetails: Record<string, HotelDetail> = {
   },
   "sultanas-villa": {
     guests: 20, bedrooms: "9 Bedrooms",
-    roomOptions: [{ label: "9 Bedroom Villa", priceKsh: 64378, priceUsd: 499 }],
+    roomOptions: [{ label: "9 Bedroom Villa", priceKsh: 70000, priceUsd: 542 }],
     highlights: ["Diani Beach", "Large group villa", "Accommodates 20 guests"],
+  },
+  "villa-branca-diani": {
+    guests: 10, bedrooms: "5 Bedrooms",
+    roomOptions: [{ label: "5 Bedroom Standalone Villa", priceKsh: 200000, priceUsd: 1600 }],
+    highlights: ["Diani Beach", "Standalone villa", "Private pool", "Accommodates 10 guests"],
+  },
+  "watano-beach-house-diani": {
+    guests: 16, bedrooms: "8 Bedrooms",
+    roomOptions: [{ label: "8 Bedroom Beach House", priceKsh: 500000, priceUsd: 4000 }],
+    highlights: ["Diani Beach", "Luxury beach house", "Beachfront", "Accommodates 16 guests"],
   },
 
   // ── WATAMU & MALINDI ────────────────────────────────────────
   "bingo-house-watamu": {
     guests: 14, bedrooms: "5 Bedrooms",
-    roomOptions: [{ label: "5 Bedroom Private Villa", priceKsh: 90129, priceUsd: 698 }],
+    roomOptions: [{ label: "5 Bedroom Private Villa", priceKsh: 72000, priceUsd: 557 }],
     highlights: ["Watamu Beach", "Private villa", "Accommodates 14 guests"],
   },
   "turtle-bay-villa-watamu": {
     guests: 10, bedrooms: "1–5 Bedrooms",
     roomOptions: [
-      { label: "1 Bedroom Apartment", priceKsh: 6437,  priceUsd: 50  },
-      { label: "2 Bedroom Apartment", priceKsh: 12875, priceUsd: 100 },
-      { label: "3 Bedroom Villa",     priceKsh: 19313, priceUsd: 150 },
-      { label: "4 Bedroom Villa",     priceKsh: 25751, priceUsd: 199 },
-      { label: "5 Bedroom Villa",     priceKsh: 32189, priceUsd: 249 },
+      { label: "1 Bedroom Apartment", priceKsh: 70000,  priceUsd: 542  },
+      { label: "2 Bedroom Apartment", priceKsh: 100000, priceUsd: 774 },
+      { label: "3 Bedroom Villa",     priceKsh: 150000, priceUsd: 1160 },
+      { label: "4 Bedroom Villa",     priceKsh: 200000, priceUsd: 1547 },
+      { label: "5 Bedroom Villa",     priceKsh: 250000, priceUsd: 1934 },
     ],
     highlights: ["Watamu Beach", "Fully furnished", "Multiple size options"],
   },
@@ -411,9 +416,9 @@ export const hotelDetails: Record<string, HotelDetail> = {
   "pride-inn-mara-camp": {
     guests: 12, bedrooms: "Tents / Cottages",
     roomOptions: [
-      { label: "Savannah Tent (9 queen + 3 twin beds)",              priceKsh: 64500,  priceUsd: 499 },
-      { label: "Deluxe River View Cottage (4 king + 3 twin beds)",   priceKsh: 83850,  priceUsd: 649 },
-      { label: "Luxury River View Cottage (4 king + 5 queen beds)",  priceKsh: 90300,  priceUsd: 699 },
+      { label: "Savannah Tent (9 queen + 3 twin beds)",              priceKsh: 65000,  priceUsd: 503 },
+      { label: "Deluxe River View Cottage (4 king + 3 twin beds)",   priceKsh: 83000,  priceUsd: 642 },
+      { label: "Luxury River View Cottage (4 king + 5 queen beds)",  priceKsh: 90000,  priceUsd: 696 },
     ],
     highlights: ["Masai Mara", "Safari camp", "River views", "Luxury tents"],
   },
@@ -434,21 +439,21 @@ export const hotelDetails: Record<string, HotelDetail> = {
     guests: 4, bedrooms: "Double / Senior Executive",
     mealPlan: "Full Board",
     roomOptions: [
-      { label: "Executive Double (Full Board, 2 guests)",  priceKsh: 32250, priceUsd: 250 },
-      { label: "Senior Executive (Full Board, 4 guests)",  priceKsh: 38760, priceUsd: 300 },
+      { label: "Executive Double (Full Board, 2 guests)",  priceKsh: 32000, priceUsd: 248 },
+      { label: "Senior Executive (Full Board, 4 guests)",  priceKsh: 38000, priceUsd: 294 },
     ],
     highlights: ["Zanzibar", "Beachfront resort", "Full board included", "Pool & spa"],
   },
   "zanzibar-beach-resort": {
     guests: 2, bedrooms: "Double Room",
     mealPlan: "Bed & Breakfast",
-    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 19380, priceUsd: 150 }],
+    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 20000, priceUsd: 155 }],
     highlights: ["Zanzibar", "Beachfront", "Breakfast included"],
   },
   "warere-beach-resort-zanzibar": {
     guests: 2, bedrooms: "Double Room",
     mealPlan: "Bed & Breakfast",
-    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 32300, priceUsd: 250 }],
+    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 32000, priceUsd: 248 }],
     highlights: ["Zanzibar Nungwi", "Beachfront", "Breakfast included"],
   },
 
@@ -456,17 +461,17 @@ export const hotelDetails: Record<string, HotelDetail> = {
   "lagoon-attitude-hotel-mauritius": {
     guests: 2, bedrooms: "Double Room",
     mealPlan: "Bed & Breakfast",
-    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 45220, priceUsd: 350 }],
+    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 35000, priceUsd: 271 }],
     highlights: ["Cap Malheureux Mauritius", "Adults only", "Beachfront", "Breakfast included"],
   },
   "solana-beach-mauritius": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 28424, priceUsd: 220 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 28000, priceUsd: 217 }],
     highlights: ["Mauritius", "Beachfront resort", "Ocean views"],
   },
   "villa-anakao-mauritius": {
     guests: 2, bedrooms: "Villa",
-    roomOptions: [{ label: "Villa", priceKsh: 25840, priceUsd: 200 }],
+    roomOptions: [{ label: "Villa", priceKsh: 26000, priceUsd: 201 }],
     highlights: ["Mauritius", "Private villa", "Boutique property"],
   },
 
@@ -474,36 +479,36 @@ export const hotelDetails: Record<string, HotelDetail> = {
   "the-retreat-rwanda": {
     guests: 2, bedrooms: "Double Room",
     mealPlan: "Bed & Breakfast",
-    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 58140, priceUsd: 450 }],
+    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 58000, priceUsd: 449 }],
     highlights: ["Kigali Rwanda", "Luxury boutique hotel", "Solar-powered", "Breakfast included"],
   },
   "4-bedroom-villa-rwanda": {
     guests: 8, bedrooms: "4 Bedrooms (All Ensuite)",
-    roomOptions: [{ label: "4 Bedroom Villa (All Ensuite)", priceKsh: 25840, priceUsd: 200 }],
+    roomOptions: [{ label: "4 Bedroom Villa (All Ensuite)", priceKsh: 26000, priceUsd: 201 }],
     highlights: ["Kigali Rwanda", "All ensuite rooms", "Private villa"],
   },
   "the-manor-hotel-rwanda": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 23256, priceUsd: 180 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 24000, priceUsd: 186 }],
     highlights: ["Kigali Rwanda", "Manor-style hotel", "Gardens"],
   },
 
   // ── SEYCHELLES ──────────────────────────────────────────────
   "pineapple-beach-villas-seychelles": {
     guests: 4, bedrooms: "Villa",
-    roomOptions: [{ label: "Beach Villa", priceKsh: 45220, priceUsd: 350 }],
+    roomOptions: [{ label: "Beach Villa", priceKsh: 45000, priceUsd: 348 }],
     highlights: ["Baie Lazare Mahé Seychelles", "Secluded beach cove", "Self-catering"],
   },
   "palm-beach-hotel-seychelles": {
     guests: 2, bedrooms: "Double Room",
     mealPlan: "Bed & Breakfast",
-    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 32300, priceUsd: 250 }],
+    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 32000, priceUsd: 248 }],
     highlights: ["Praslin Seychelles", "Beachfront", "Breakfast included"],
   },
   "oasis-hotel-restaurant-and-spa-seychelles": {
     guests: 2, bedrooms: "Double Room",
     mealPlan: "Bed & Breakfast",
-    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 45220, priceUsd: 350 }],
+    roomOptions: [{ label: "Double Room (B&B)", priceKsh: 30000, priceUsd: 232 }],
     highlights: ["Grand Anse Praslin Seychelles", "Spa & restaurant on site", "Breakfast included"],
   },
 
@@ -511,36 +516,36 @@ export const hotelDetails: Record<string, HotelDetail> = {
   "lagoon-beach-hotel-and-spa-cape-town": {
     guests: 8, bedrooms: "Double Room / 4-Bedroom Apartment",
     roomOptions: [
-      { label: "Double Room",                  priceKsh: 14212, priceUsd: 110 },
-      { label: "4 Bedroom Sea View Apartment", priceKsh: 51680, priceUsd: 400 },
+      { label: "Double Room",                  priceKsh: 15000, priceUsd: 116 },
+      { label: "4 Bedroom Sea View Apartment", priceKsh: 50000, priceUsd: 387 },
     ],
     highlights: ["Milnerton Cape Town", "Spa on site", "Beachfront", "Sea view apartments available"],
   },
   "premier-hotel-cape-town": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 15504, priceUsd: 120 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 16000, priceUsd: 124 }],
     highlights: ["Sea Point Cape Town", "City hotel", "Close to beaches"],
   },
   "atlantic-palms-cape-town": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 19380, priceUsd: 150 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 20000, priceUsd: 155 }],
     highlights: ["Sea Point Cape Town", "Boutique hotel", "Atlantic Ocean views"],
   },
 
   // ── THAILAND ────────────────────────────────────────────────
   "chanalai-garden-resort-thailand": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 12920, priceUsd: 100 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 13000, priceUsd: 100 }],
     highlights: ["Kata Beach Phuket", "Hillside resort", "Steps from Kata Beach"],
   },
   "phuket-marriott-resort-and-spa": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 32300, priceUsd: 250 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 32000, priceUsd: 248 }],
     highlights: ["Tri-Trang Beach Patong Phuket", "5-star resort", "9 restaurants", "3 pools", "Spa"],
   },
   "amari-phuket-in-thailand": {
     guests: 2, bedrooms: "Double Room",
-    roomOptions: [{ label: "Double Room", priceKsh: 25840, priceUsd: 200 }],
+    roomOptions: [{ label: "Double Room", priceKsh: 26000, priceUsd: 201 }],
     highlights: ["Patong Beach Phuket", "Beachfront resort", "Ocean views", "Multiple dining outlets"],
   },
 };
