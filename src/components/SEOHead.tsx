@@ -13,7 +13,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
   keywords = "travel, tours, events, Kenya, hotels, destinations, vacation packages",
-  image = "/ANTEL-EVENTS-LOGO.jpg",
+  image = "/ANTEL_Logo_clear.jpg",
   url,
   type = "website"
 }) => {

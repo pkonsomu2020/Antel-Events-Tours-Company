@@ -47,7 +47,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center px-4">
         <Link to="/" className="flex items-center">
-          <img src="/ANTEL-EVENTS-LOGO.jpg" alt="Antel Events Logo" className="h-12 w-auto mr-3" />
+          <img src="/ANTEL_Logo_clear.jpg" alt="Antel Events Logo" className="h-12 w-auto mr-3" />
         </Link>
 
         {isMobile ? (
@@ -77,7 +77,7 @@ const Navbar = () => {
               <div className="fixed inset-0 z-40">
                 <div className="fixed top-0 left-0 h-full w-72 bg-secondary shadow-lg flex flex-col">
                   <div className="flex flex-col items-start p-6 border-b border-border">
-                    <img src="/ANTEL-EVENTS-LOGO.jpg" alt="Antel Events Logo" className="h-12 w-auto mb-6" />
+                    <img src="/ANTEL_Logo_clear.jpg" alt="Antel Events Logo" className="h-12 w-auto mb-6" />
                   </div>
                   <nav className="flex-1 flex flex-col gap-0">
                     <Link to="/" onClick={toggleMobileMenu} className="border-b border-border px-8 py-4 text-left font-semibold text-lg text-secondary-foreground hover:bg-secondary/80">HOME</Link>

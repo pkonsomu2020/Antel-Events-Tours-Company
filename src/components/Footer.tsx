@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <img src="/ANTEL-EVENTS-LOGO.jpg" alt="Antel Events Logo" className="h-12 w-auto mb-4" />
+            <img src="/ANTEL_Logo_clear.jpg" alt="Antel Events Logo" className="h-12 w-auto mb-4" />
             <p className="mb-4">
               Creating extraordinary events and unforgettable tours since 2010. 
               Your satisfaction is our top priority.
