@@ -40,29 +40,6 @@ const About = () => {
     }
   ];
 
-  const team = [
-    {
-      name: "Michael Johnson",
-      role: "Founder & CEO",
-      bio: "With over 20 years in the events and tourism industry, Michael brings extensive experience and vision to Antel Events and Tours."
-    },
-    {
-      name: "Sarah Williams",
-      role: "Events Director",
-      bio: "Sarah leads our events team with creativity and precision, ensuring flawless execution of every event we manage."
-    },
-    {
-      name: "David Chen",
-      role: "Tours Manager",
-      bio: "David's passion for travel and deep knowledge of global destinations makes him the perfect leader for our tours division."
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Client Relations Manager",
-      bio: "Emily ensures every client receives personalized attention and support throughout their journey with us."
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -158,33 +135,6 @@ const About = () => {
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Our Team */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Meet Our Leadership Team</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              The passionate professionals behind Antel Events and Tours, dedicated to creating exceptional experiences.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="w-32 h-32 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-muted-foreground">{member.bio}</p>
-              </div>
             ))}
           </div>
         </div>
