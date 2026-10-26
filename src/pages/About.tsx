@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import teamImage from "@/assets/hero-image.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Award, Clock, Heart, Landmark, Target, Truck, Gift, Users, Sparkles, MapPin, PartyPopper } from "lucide-react";
+import { Award, Clock, Heart, Landmark, Target, Truck, Gift, Users, Sparkles, MapPin, PartyPopper, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -40,6 +40,29 @@ const About = () => {
     }
   ];
 
+  const services = [
+    "Sightseeing Tours",
+    "Travel itineraries",
+    "Free rewards (calendars, notebooks, pens, jumpers, etc)",
+    "Elegant living",
+    "Extraordinary group packages",
+    "Events packages (birthdays, anniversaries)",
+    "Passenger escorts upon arrival",
+    "Luggage assistance",
+    "Flight booking",
+    "Return private transfers to the hotel",
+    "Hotel reservations",
+    "Excellent service",
+    "Reliable travel assistant",
+    "Breathtaking accommodation amenities (gyms, spa, etc)",
+    "Discounts for long stay (more than a week)",
+    "Passenger assistance for the disabled (with prior notice)",
+    "Advice to clients and reminders to adhere to airline requirements and rules",
+    "Follow-ups on how your vacation is going",
+    "Meeting traveler's needs",
+    "Quick solutions to problems if they arise",
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -60,51 +83,55 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-              <div className="flex items-center gap-4 mb-4">
-                <Gift className="w-10 h-10 text-orange-500 animate-bounce" />
-                <span className="text-3xl font-bold text-orange-500">5</span>
-                <span className="text-lg font-semibold">Year Experience</span>
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+              <div className="inline-flex items-center gap-3 mb-6 rounded-full bg-orange-50 px-5 py-2">
+                <Gift className="w-6 h-6 text-orange-500" />
+                <span className="text-2xl font-bold text-orange-500">5</span>
+                <span className="text-base font-semibold">Years of Experience</span>
               </div>
-              <h2 className="text-3xl font-bold mb-6">ANTEL Events & Tours</h2>
-              <p className="text-muted-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">ANTEL Events & Tours</h2>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 ANTEL Events & Tours is a travel and event agency, founded by Elsie Neema, that strives to make your dream a reality. We create affordable packages both domestic and international for all kinds of groups: families, group of friends, colleagues, solo travelers.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground leading-relaxed">
                 Our passion is to see smiles, we believe travelling is therapeutic. We give excellent service, extraordinary packages and elegant living. We offer travel events packages: couple retreats, girls trip, family trips, corporate end of year events and team buildings.
               </p>
-              <motion.ul initial="hidden" whileInView="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }} className="mb-4 list-disc pl-6 text-muted-foreground">
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Sightseeing Tours</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Travel itineraries</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Free rewards (calendars, notebooks, pens, jumpers, etc)</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Elegant living</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Extraordinary group packages</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Events packages (birthdays, anniversaries)</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Passenger escorts upon arrival</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Luggage assistance</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Flight booking</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Return private transfers to the hotel</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Hotel reservations</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Excellent service</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Reliable travel assistant</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Breathtaking accommodation amenities (gyms, spa, etc)</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Discounts for long stay (more than a week)</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Passenger assistance for the disabled (with prior notice)</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Advice to clients and reminders to adhere to airline requirements and rules</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Follow-ups on how your vacation is going</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Meeting traveler's needs</motion.li>
-                <motion.li variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}>Quick solutions to problems if they arise</motion.li>
-              </motion.ul>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }} className="relative">
-              <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-orange-500 z-0 animate-pulse"></div>
-              <img 
-                src={teamImage} 
-                alt="Antel Events and Tours Team" 
-                className="rounded-lg shadow-xl w-full h-auto object-cover relative z-10 animate-fade-in"
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative">
+              <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-orange-500 rounded-tl-lg z-0"></div>
+              <img
+                src={teamImage}
+                alt="Antel Events and Tours Team"
+                className="rounded-lg shadow-xl w-full aspect-[4/3] object-cover relative z-10"
               />
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 border-2 border-orange-500 z-0 animate-pulse"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-orange-500 rounded-br-lg z-0"></div>
             </motion.div>
+          </div>
+
+          {/* What We Offer */}
+          <div className="mt-20">
+            <div className="text-center mb-10">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">What We Offer</h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">Everything you need for a smooth, memorable trip or event, handled by one team.</p>
+            </div>
+            <motion.ul
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              {services.map((service) => (
+                <motion.li
+                  key={service}
+                  variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
+                  className="flex items-start gap-3 rounded-lg border bg-background p-4 shadow-sm hover:shadow-md hover:border-orange-300 transition"
+                >
+                  <CheckCircle2 className="h-5 w-5 text-orange-500 shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{service}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
           </div>
         </div>
       </section>
